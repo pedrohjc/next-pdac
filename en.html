@@ -1,0 +1,1184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Next · PDAC 2027 Mission</title>
+<meta name="description" content="Next takes your company to PDAC 2027 in Toronto: a curated meeting agenda, the right networking events and follow-up until the deal is done.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0E0E0F; --bg2:#151517; --bg3:#1C1C1F;
+  --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --text:#F4F1EC; --muted:#9A968F; --dim:#6A6762;
+  --orange:#E8601C; --orange2:#FF8A3D; --orange-soft:rgba(232,96,28,.14);
+  --wa:#25D366;
+  --radius:18px;
+  --max:1240px;
+  --sans:"Inter Tight",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.55;overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img,svg,canvas{display:block}
+::selection{background:var(--orange);color:#fff}
+
+/* grain */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--orange2)}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px var(--orange-soft)}
+h1,h2,h3{font-weight:700;letter-spacing:-.035em;line-height:1.02}
+h2{font-size:clamp(38px,5.2vw,72px)}
+.accent{color:var(--orange)}
+.lead{color:var(--muted);font-size:clamp(17px,1.4vw,20px);max-width:56ch}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 26px;border-radius:999px;font-weight:600;font-size:16px;transition:transform .25s,background .25s,box-shadow .25s,border-color .25s;white-space:nowrap}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 10px 40px -10px rgba(232,96,28,.7)}
+.btn-primary:hover{background:#F26B26;transform:translateY(-2px);box-shadow:0 18px 50px -12px rgba(232,96,28,.85)}
+.btn-ghost{border:1px solid var(--line2);color:var(--text)}
+.btn-ghost:hover{border-color:var(--text);transform:translateY(-2px)}
+.btn .arr{transition:transform .25s}
+.btn:hover .arr{transform:translateX(4px)}
+.btn svg{width:20px;height:20px}
+
+/* logo */
+.logo{display:inline-flex;align-items:center;font-weight:800;font-size:28px;letter-spacing:-.04em;line-height:1}
+.logo .chev{width:.55em;height:.72em;margin:0 .02em 0 .04em;color:var(--orange);transform:translateY(.02em)}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s,backdrop-filter .3s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(14,14,15,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.nav ul{display:flex;gap:34px;list-style:none;font-size:15px;color:var(--muted)}
+.nav ul a:hover{color:var(--text)}
+.nav .btn{height:44px;padding:0 20px;font-size:14px}
+.nav-r{display:flex;align-items:center;gap:12px}
+.lang{display:inline-flex;padding:3px;border:1px solid var(--line2);border-radius:999px;font-size:11.5px;letter-spacing:.08em}
+.lang a{padding:7px 11px;border-radius:999px;color:var(--muted);transition:color .2s,background .2s}
+.lang a:hover{color:var(--text)}
+.lang a.on{background:var(--text);color:var(--bg)}
+
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:110px 0 60px}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(60% 60% at 75% 45%,rgba(232,96,28,.14),transparent 70%);pointer-events:none}
+.hero-bg{position:absolute;inset:-6% 0 0;z-index:0;overflow:hidden;will-change:transform}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 62%;filter:grayscale(.6) contrast(1.08) brightness(.75);transform:scale(1.1);animation:kb 26s cubic-bezier(.2,.6,.3,1) forwards}
+@keyframes kb{to{transform:scale(1)}}
+.hero-bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(14,14,15,.95) 0%,rgba(14,14,15,.84) 36%,rgba(14,14,15,.55) 68%,rgba(14,14,15,.72) 100%),
+  linear-gradient(180deg,rgba(14,14,15,.7) 0%,transparent 22%,transparent 62%,var(--bg) 100%)}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:20px;width:100%}
+.hero h1{font-size:clamp(46px,6.6vw,96px);margin:26px 0 26px}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line span{display:inline-block;transform:translateY(105%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 .line:nth-child(2) span{animation-delay:.1s}
+.hero h1 .line:nth-child(3) span{animation-delay:.2s}
+@keyframes rise{to{transform:none}}
+.fade-up{opacity:0;transform:translateY(18px);animation:fadeUp .9s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.countdown{display:flex;gap:10px;margin-top:44px;align-items:stretch;flex-wrap:wrap}
+.cd{min-width:84px;padding:14px 16px 12px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.02)}
+.cd b{display:block;font-family:var(--mono);font-weight:500;font-size:30px;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+.cd small{display:block;margin-top:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.cd.when{display:flex;flex-direction:column;justify-content:center;border-color:transparent;background:none;color:var(--muted);font-size:14px;line-height:1.35}
+.cd.when strong{color:var(--text);font-weight:600}
+.globe-box{position:relative;aspect-ratio:1/1;width:min(100%,720px);justify-self:end;margin-right:-60px}
+#globe{width:100%;height:100%;cursor:grab;touch-action:pan-y}
+#globe:active{cursor:grabbing}
+.globe-hint{position:absolute;bottom:6%;left:50%;transform:translateX(-50%);color:var(--dim);white-space:nowrap}
+.scroll-cue{position:absolute;z-index:2;bottom:26px;left:50%;transform:translateX(-50%);width:22px;height:36px;border:1.5px solid var(--line2);border-radius:12px}
+.scroll-cue::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--orange);animation:cue 1.8s infinite}
+@keyframes cue{0%{opacity:0;transform:translateY(-3px)}40%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+
+/* números do PDAC em volta do globo */
+.gstat{position:absolute;z-index:2;padding:13px 18px 12px;border-radius:16px;background:rgba(18,18,20,.58);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 50px -24px rgba(0,0,0,.9);white-space:nowrap;pointer-events:none;opacity:0;transform:translateY(12px) scale(.96);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.gstat.show{opacity:1;transform:none}
+.gstat b{display:block;font-size:32px;font-weight:700;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums}
+.gstat span{display:block;margin-top:7px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.gstat::before{content:"";position:absolute;top:14px;right:14px;width:6px;height:6px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 3px var(--orange-soft)}
+.gs-1{top:10%;left:-2%}
+.gs-2{top:42%;right:-4%}
+.gs-3{bottom:13%;left:2%}
+.hero-stats{display:none;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.hero-stats div{padding:14px 12px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(14,14,15,.5)}
+.hero-stats b{display:block;font-size:22px;font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--orange)}
+.hero-stats span{display:block;margin-top:6px;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+
+section{position:relative}
+.sec{padding:140px 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:72px}
+.sec-head .lead{justify-self:end}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+
+/* phases */
+.phases{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.phases .progress{position:absolute;top:-1px;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--orange),var(--orange2));transition:width 1.8s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 18px rgba(232,96,28,.8)}
+.phases.in .progress{width:100%}
+.phase{padding:44px 40px 10px 0;position:relative}
+.phase+.phase{padding-left:40px;border-left:1px solid var(--line)}
+.phase .num{font-family:var(--mono);font-size:13px;color:var(--orange2);letter-spacing:.12em}
+.phase h3{font-size:clamp(34px,3.4vw,48px);margin:18px 0 18px}
+.phase p{color:var(--muted);max-width:34ch}
+.phase .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.tag{font-size:13px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+
+/* founders */
+.founders{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.quote{font-size:clamp(30px,3.8vw,54px);font-weight:600;letter-spacing:-.03em;line-height:1.12;max-width:22ch}
+.quote em{font-style:normal;color:var(--orange)}
+.f-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center}
+.people{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.person{padding:10px 10px 18px;border:1px solid var(--line);border-radius:22px;background:var(--bg);transition:border-color .3s,transform .4s cubic-bezier(.2,.8,.2,1)}
+.person:hover{border-color:rgba(232,96,28,.5);transform:translateY(-6px)}
+.person .photo{position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;margin-bottom:16px}
+.person .photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(.35) contrast(1.04);transition:filter .5s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.person:hover .photo img{filter:none;transform:scale(1.04)}
+.person .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(14,14,15,.45));pointer-events:none}
+.person h4{font-size:20px;font-weight:600;letter-spacing:-.02em;padding:0 8px}
+.person p{color:var(--muted);font-size:14.5px;padding:0 8px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.stat{padding:22px;border-radius:var(--radius);border:1px solid var(--line)}
+.stat b{display:block;font-size:52px;font-weight:700;letter-spacing:-.05em;line-height:1;color:var(--orange)}
+.stat span{display:block;margin-top:8px;color:var(--muted);font-size:15px}
+.f-copy{margin-top:30px;color:var(--muted);max-width:52ch}
+
+/* packages */
+.pk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.pk{position:relative;display:flex;flex-direction:column;padding:34px 30px 30px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,var(--bg2),var(--bg));transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.pk:hover{transform:translateY(-8px);border-color:var(--line2)}
+.pk .lvl{display:flex;gap:5px;margin-bottom:28px}
+.pk .lvl i{width:22px;height:4px;border-radius:2px;background:var(--line2)}
+.pk .lvl i.on{background:var(--orange)}
+.pk h3{font-size:32px;margin-bottom:10px}
+.pk .for{color:var(--muted);font-size:16px;min-height:3em}
+.pk ul{list-style:none;margin:26px 0 30px;display:grid;gap:12px;font-size:15.5px;flex:1}
+.pk li{display:flex;gap:12px;align-items:flex-start}
+.pk li::before{content:"";flex:none;width:16px;height:16px;margin-top:4px;border-radius:50%;background:var(--orange-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%23FF8A3D' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.pk li.plus{color:var(--muted)}
+.pk .price{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:14px}
+.pk .btn{justify-content:center;width:100%}
+.pk.featured{border-color:rgba(232,96,28,.55);background:radial-gradient(120% 70% at 50% 0%,rgba(232,96,28,.16),transparent 60%),var(--bg2)}
+.pk.featured::before{content:"Recomendado";position:absolute;top:-12px;left:30px;padding:5px 12px;border-radius:999px;background:var(--orange);color:#fff;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
+.pk-dots{display:none;justify-content:center;gap:6px;margin-top:18px}
+.pk-dots i{width:6px;height:6px;border-radius:3px;background:var(--line2);transition:width .3s,background .3s}
+.pk-dots i.on{width:22px;background:var(--orange)}
+.pk-extra{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:18px;padding:22px 30px;border:1px dashed var(--line2);border-radius:22px;color:var(--muted)}
+.pk-extra strong{color:var(--text)}
+
+/* builder */
+.builder{background:var(--bg2);border-top:1px solid var(--line)}
+.b-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:start}
+.q{padding:26px 0;border-bottom:1px solid var(--line)}
+.q:first-child{padding-top:0}
+.q-label{display:flex;gap:14px;align-items:baseline;margin-bottom:16px;font-weight:600;font-size:18px}
+.q-label .mono{color:var(--orange2);font-size:11.5px}
+.q-label small{color:var(--dim);font-weight:400;font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{padding:11px 18px;border:1px solid var(--line2);border-radius:999px;font-size:15px;color:var(--muted);transition:all .2s;user-select:none}
+.chip:hover{border-color:var(--text);color:var(--text)}
+.chip[aria-pressed="true"]{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:0 8px 24px -10px rgba(232,96,28,.9)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field input{width:100%;height:54px;padding:0 18px;border-radius:14px;border:1px solid var(--line2);background:var(--bg);color:var(--text);font:inherit;font-size:16px;transition:border-color .2s,box-shadow .2s}
+.field input::placeholder{color:var(--dim)}
+.field input:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px var(--orange-soft)}
+.send-row{display:flex;align-items:center;gap:20px;margin-top:30px;flex-wrap:wrap}
+.send-row .note{color:var(--dim);font-size:13.5px;max-width:36ch}
+.btn-wa{background:var(--wa);color:#06260F;box-shadow:0 10px 40px -12px rgba(37,211,102,.7)}
+.btn-wa:hover{background:#2EE574;transform:translateY(-2px)}
+
+/* phone */
+.phone-col{position:sticky;top:100px}
+.phone{position:relative;width:100%;max-width:360px;margin:0 auto;border-radius:44px;padding:12px;background:linear-gradient(160deg,#2A2A2E,#111113);box-shadow:0 50px 100px -30px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08),inset 0 0 0 1px rgba(255,255,255,.04)}
+.phone::before{content:"";position:absolute;inset:-60px;z-index:-1;background:radial-gradient(closest-side,rgba(232,96,28,.22),transparent);filter:blur(10px)}
+.screen{border-radius:34px;overflow:hidden;background:#0B141A;height:620px;display:flex;flex-direction:column}
+.wa-top{display:flex;align-items:center;gap:12px;padding:44px 16px 12px;background:#1F2C34}
+.wa-top .av{width:38px;height:38px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-weight:800;color:#fff;font-size:15px}
+.wa-top b{display:block;font-size:15.5px;font-weight:600;color:#E9EDEF}
+.wa-top small{display:block;font-size:12.5px;color:#8696A0}
+.wa-body{flex:1;padding:18px 14px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;
+  background-color:#0B141A;background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:18px 18px}
+.day{align-self:center;font-size:11.5px;color:#8696A0;background:#182229;padding:5px 10px;border-radius:8px;margin-bottom:auto}
+.bubble{align-self:flex-end;max-width:88%;background:#005C4B;color:#E9EDEF;font-size:14.2px;line-height:1.45;padding:9px 11px 6px;border-radius:12px 4px 12px 12px;white-space:pre-wrap;word-wrap:break-word;box-shadow:0 1px 1px rgba(0,0,0,.2)}
+.bubble .meta{display:flex;justify-content:flex-end;align-items:center;gap:4px;font-size:11px;color:rgba(233,237,239,.6);margin-top:3px}
+.bubble .meta svg{width:16px;height:11px;color:#53BDEB}
+.ph{display:inline-block;min-width:44px;height:.95em;vertical-align:-.1em;border-radius:4px;background:rgba(255,255,255,.14);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.45}}
+.hl{border-radius:4px;transition:background .8s}
+.hl.flash{background:rgba(255,138,61,.45)}
+.typing{align-self:flex-start;display:none;gap:4px;padding:12px 14px;background:#202C33;border-radius:4px 12px 12px 12px}
+.typing.show{display:flex}
+.typing i{width:6px;height:6px;border-radius:50%;background:#8696A0;animation:dot 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.wa-input{display:flex;align-items:center;gap:8px;padding:10px 10px 18px;background:#0B141A}
+.wa-input div{flex:1;height:40px;border-radius:20px;background:#1F2C34;color:#8696A0;font-size:14px;display:flex;align-items:center;padding:0 16px}
+.wa-input span{width:40px;height:40px;border-radius:50%;background:#00A884;display:grid;place-items:center}
+.wa-input svg{width:18px;height:18px;color:#fff}
+
+/* scroll progress */
+.sprog{position:fixed;top:0;left:0;right:0;height:2px;z-index:70;background:linear-gradient(90deg,var(--orange),var(--orange2));transform-origin:0 50%;transform:scaleX(0);box-shadow:0 0 12px rgba(232,96,28,.8)}
+
+/* tour (galeria horizontal fixada no scroll) */
+.tour{position:relative}
+.tour-sticky{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;gap:44px;overflow:hidden;padding-top:70px}
+.tour-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;width:100%}
+.tour-count{font-family:var(--mono);color:var(--dim);font-size:14px;letter-spacing:.1em;white-space:nowrap}
+.tour-count b{color:var(--text);font-weight:500;font-size:30px;margin-right:6px}
+.tour-track{display:flex;gap:22px;width:max-content;padding:0 max(32px,calc((100vw - var(--max))/2 + 32px));will-change:transform}
+.tcard{position:relative;flex:none;width:clamp(280px,26vw,390px);height:min(58vh,520px);border-radius:22px;overflow:hidden;background:var(--bg3);border:1px solid var(--line)}
+.tcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.15);filter:saturate(.85) contrast(1.05)}
+.tcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,0) 38%,rgba(10,10,11,.94) 100%)}
+.tcard .cap{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:26px}
+.tcard .cap .mono{color:var(--orange2);font-size:11px}
+.tcard h3{font-size:30px;margin:10px 0 8px}
+.tcard p{color:rgba(244,241,236,.78);font-size:15px;line-height:1.45}
+.tcard.real::before{content:"PDAC 2025";position:absolute;top:18px;left:18px;z-index:1;padding:5px 10px;border-radius:999px;background:rgba(14,14,15,.6);backdrop-filter:blur(6px);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--text)}
+.tour-bar{height:2px;background:var(--line);border-radius:2px;overflow:hidden}
+.tour-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--orange),var(--orange2));transform-origin:0 50%;transform:scaleX(0)}
+
+/* builder progress */
+.b-progress{display:flex;align-items:center;gap:16px;margin-bottom:30px}
+.b-progress .bar{flex:1;height:4px;border-radius:2px;background:var(--line);overflow:hidden}
+.b-progress i{display:block;height:100%;width:0;border-radius:2px;background:linear-gradient(90deg,var(--orange),var(--orange2));transition:width .5s cubic-bezier(.2,.8,.2,1)}
+#b-count{color:var(--muted);white-space:nowrap}
+#b-count.done{color:var(--wa)}
+.btn-wa.ready{animation:readyPulse 1.8s infinite}
+@keyframes readyPulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}100%{box-shadow:0 0 0 18px rgba(37,211,102,0)}}
+
+/* final bg */
+.final-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.final-bg img{width:100%;height:100%;object-fit:cover;object-position:center 60%;opacity:.42}
+.final-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0%,rgba(14,14,15,.5) 35%,rgba(14,14,15,.7) 75%,var(--bg) 100%)}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;font-size:clamp(18px,1.6vw,22px);font-weight:600;letter-spacing:-.015em;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+summary .pm{flex:none;position:relative;width:28px;height:28px;border-radius:50%;border:1px solid var(--line2);transition:transform .3s,background .3s,border-color .3s}
+summary .pm::before,summary .pm::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1.5px;margin:-.75px 0 0 -5px;background:var(--text)}
+summary .pm::after{transform:rotate(90deg);transition:transform .3s}
+details[open] summary .pm{background:var(--orange);border-color:var(--orange)}
+details[open] summary .pm::after{transform:rotate(0)}
+details p{color:var(--muted);padding:0 50px 26px 0;max-width:62ch}
+
+/* final */
+.final{padding:170px 0 120px;text-align:center;overflow:hidden}
+.final::before{content:"";position:absolute;z-index:1;left:50%;bottom:-40%;width:1100px;height:700px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(232,96,28,.28),transparent);pointer-events:none}
+.final h2{font-size:clamp(46px,8vw,124px);max-width:12ch;margin:26px auto 44px}
+.final .ctas{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+footer{position:relative;border-top:1px solid var(--line);background:var(--bg2);color:var(--muted);font-size:15px;overflow:hidden}
+.f-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.25fr;gap:48px;padding:90px 0 50px}
+.f-brand .logo{font-size:34px;color:var(--text)}
+.f-tag{margin-top:14px;color:var(--text);font-weight:600;letter-spacing:-.01em}
+.f-desc{margin-top:10px;max-width:38ch;line-height:1.55}
+.f-next{display:flex;align-items:center;gap:16px;margin-top:28px;padding:14px 18px 14px 14px;border:1px solid var(--line2);border-radius:16px;background:var(--bg);width:max-content;max-width:100%}
+.f-next .days{flex:none;display:grid;place-items:center;width:58px;height:58px;border-radius:12px;background:var(--orange);color:#fff;text-align:center;line-height:1}
+.f-next .days b{display:block;font-size:22px;font-weight:700;letter-spacing:-.03em}
+.f-next .days small{display:block;margin-top:3px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.f-next .mono{display:block;font-size:10.5px;color:var(--orange2)}
+.f-next strong{display:block;color:var(--text);font-size:17px;margin:3px 0 1px}
+.f-next span:last-child{font-size:13.5px}
+.f-col h5{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:18px}
+.f-col ul{list-style:none;display:grid;gap:11px}
+.f-col a{transition:color .2s}
+.f-col a:hover{color:var(--text)}
+.f-contact{display:grid;gap:16px}
+.f-contact b{display:block;color:var(--text);font-weight:600;font-size:15px}
+.f-contact .btn{height:46px;padding:0 20px;font-size:14px;margin-top:4px;width:max-content}
+.f-contact .loc{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--dim)}
+.f-mark{display:flex;justify-content:center;align-items:center;font-weight:800;font-size:clamp(120px,27vw,400px);letter-spacing:-.07em;line-height:.78;margin-bottom:-.08em;user-select:none;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,0) 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.f-mark svg{width:.5em;height:.66em;margin:0 .01em;color:rgba(232,96,28,.16)}
+.f-bottom{position:relative;display:flex;justify-content:space-between;align-items:center;gap:20px 40px;flex-wrap:wrap;padding:24px 0 30px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
+.f-bottom .legal{max-width:62ch}
+.f-bottom a:hover{color:var(--text)}
+
+/* floating wa */
+.fab{position:fixed;right:24px;bottom:24px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 14px 40px -10px rgba(37,211,102,.8);transform:scale(0);transition:transform .4s cubic-bezier(.2,1.4,.4,1)}
+.fab.show{transform:scale(1)}
+.fab:hover{transform:scale(1.08)}
+.fab svg{width:30px;height:30px;color:#fff}
+.fab::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--wa);animation:ring 2.4s infinite}
+@keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.6);opacity:0}}
+
+/* responsive */
+@media (max-width:1020px){
+  .nav ul{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .globe-box{position:absolute;top:0;right:-30%;width:120%;max-width:none;margin:0;opacity:.5;pointer-events:none;justify-self:auto}
+  .hero-text{position:relative;z-index:2}
+  .hero-bg::after{background:linear-gradient(180deg,rgba(14,14,15,.72) 0%,rgba(14,14,15,.82) 55%,var(--bg) 100%)}
+  .globe-hint,.gstat{display:none}
+  .hero-stats{display:grid}
+  .sec-head,.f-grid,.b-grid,.faq-grid{grid-template-columns:1fr;gap:40px}
+  .sec-head .lead{justify-self:start}
+  .phases,.pk-grid{grid-template-columns:1fr}
+  .phase,.phase+.phase{padding:36px 0;border-left:0;border-top:1px solid var(--line)}
+  .phase:first-of-type{border-top:0}
+  .phone-col{position:relative;top:0}
+  .tour{height:auto!important}
+  .tour-sticky{position:relative;height:auto;padding:110px 0 0;gap:34px}
+  .tour-track{width:auto;transform:none!important;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 32px 6px;scroll-padding:0 32px;scrollbar-width:none}
+  .tour-track::-webkit-scrollbar{display:none}
+  .tcard{scroll-snap-align:start;width:min(78vw,380px);height:min(110vw,500px)}
+  .pk-grid{gap:26px}
+  .f-top{grid-template-columns:1fr 1fr;gap:44px 30px;padding-top:70px}
+  .f-brand{grid-column:1/-1}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .sec{padding:96px 0}
+  .nav{height:64px}
+  .nav .btn span{display:none}
+  .nav .btn{width:44px;padding:0;justify-content:center}
+  .globe-box{top:40px;right:-55%;width:150%}
+  .hero .ctas .btn{flex:1;justify-content:center}
+  .cd{min-width:0;flex:1;padding:12px 10px 10px}
+  .cd b{font-size:24px}
+  .cd.when{flex-basis:100%}
+  .fields{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat b{font-size:40px}
+  .pk-extra{flex-direction:column;align-items:flex-start}
+  .screen{height:560px}
+  details p{padding-right:0}
+  .scroll-cue{display:none}
+  .tour-track{padding:0 16px 6px;scroll-padding:0 16px}
+  .tour-head{flex-direction:column;align-items:flex-start}
+  .f-top .f-col:last-child{grid-column:1/-1}
+  .f-bottom{flex-direction:column;align-items:flex-start;padding-bottom:40px}
+  /* mobile: ritmo mais curto entre seções */
+  .sec{padding:76px 0}
+  .sec-head{margin-bottom:44px;gap:22px}
+  .tour-sticky{padding-top:76px}
+  .final{padding:110px 0 90px}
+  .hero{padding:96px 0 40px}
+  .globe-box{top:230px;opacity:.38}
+  .cd small{font-size:10px;letter-spacing:.1em}
+  /* pacotes viram carrossel: lado a lado em vez de três cartões empilhados */
+  .pk-grid{display:flex;gap:12px;margin:0 -16px;padding:16px 16px 4px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 16px;scrollbar-width:none}
+  .pk-grid::-webkit-scrollbar{display:none}
+  .pk{flex:none;width:84%;scroll-snap-align:start;padding:30px 22px 22px}
+  .pk:hover{transform:none}
+  .pk h3{font-size:28px}
+  .pk-dots{display:flex}
+  /* no celular a própria conversa do WhatsApp mostra a mensagem; o mockup só alongava a página */
+  .phone-col,.desk-only{display:none}
+  .send-row .btn{width:100%;justify-content:center}
+  .f-col a{display:inline-block;padding:6px 0}
+  .f-col ul{gap:4px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="chev" viewBox="0 0 20 26"><path d="M1.5 1.5 L19 13 L1.5 24.5 L7.5 13 Z" fill="currentColor"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.43 9.43 0 0 1-1.45-5.03c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.89.99 6.67 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.21-4.24 9.44-9.44 9.44zm8.03-17.47A11.3 11.3 0 0 0 12.04.7C5.78.7.69 5.79.69 12.05c0 2 .52 3.95 1.52 5.67L.6 23.6l6.02-1.58a11.33 11.33 0 0 0 5.42 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.02z"/></symbol>
+</svg>
+
+<div class="sprog" id="sprog" aria-hidden="true"></div>
+<header id="top">
+  <div class="wrap nav">
+    <a href="#" class="logo" aria-label="Next">Ne<svg class="chev"><use href="#chev"/></svg>t</a>
+    <ul>
+      <li><a href="#tour">The experience</a></li>
+      <li><a href="#quem">About us</a></li>
+      <li><a href="#como">How it works</a></li>
+      <li><a href="#pacotes">Packages</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-r">
+      <div class="lang mono" aria-label="Language"><a href="index.html" hreflang="pt-BR">PT</a><a href="en.html" class="on" hreflang="en">EN</a></div>
+      <a href="#missao" class="btn btn-primary"><svg><use href="#wa"/></svg><span>Plan your mission</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  
+  <div class="hero-bg" id="hero-bg" aria-hidden="true"><img src="img/hero-pdac.jpg" alt=""></div>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <div class="mono eyebrow fade-up">PDAC 2027 Mission · Toronto, Canada</div>
+      <h1>
+        <span class="line"><span>Your gateway</span></span>
+        <span class="line"><span>to the heart of</span></span>
+        <span class="line"><span class="accent">global mining.</span></span>
+      </h1>
+      <p class="lead fade-up" style="animation-delay:.35s">Next takes your company to PDAC, the world’s largest mining convention, with a curated meeting agenda, access to the right networking events and follow-up until the deal is done.</p>
+      <div class="ctas fade-up" style="animation-delay:.5s">
+        <a href="#missao" class="btn btn-primary">Plan your mission <span class="arr">→</span></a>
+        <a href="#tour" class="btn btn-ghost">See the experience</a>
+      </div>
+      <div class="countdown fade-up" style="animation-delay:.65s" aria-label="Countdown to PDAC 2027">
+        <div class="cd"><b id="cd-d">000</b><small>days</small></div>
+        <div class="cd"><b id="cd-h">00</b><small>hours</small></div>
+        <div class="cd"><b id="cd-m">00</b><small>min</small></div>
+        <div class="cd"><b id="cd-s">00</b><small>sec</small></div>
+        <div class="cd when"><strong>March 7–10</strong>Metro Toronto Convention Centre</div>
+      </div>
+      <div class="hero-stats fade-up" style="animation-delay:.8s" aria-hidden="true">
+        <div><b>32,155</b><span>attendees</span></div>
+        <div><b>141</b><span>countries</span></div>
+        <div><b>3,431</b><span>investors</span></div>
+      </div>
+    </div>
+    <div class="globe-box">
+      <canvas id="globe" aria-label="Globe showing the route from Brazil to Toronto"></canvas>
+      <div class="gstat gs-1" data-anchor="to"><b data-n="32155">0</b><span>attendees</span></div>
+      <div class="gstat gs-2" data-anchor="af"><b data-n="141">0</b><span>countries</span></div>
+      <div class="gstat gs-3" data-anchor="to"><b data-n="3431">0</b><span>investors</span></div>
+      <div class="mono globe-hint">↔ drag the globe</div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"></div>
+</section>
+
+<!-- POR DENTRO DA MISSÃO -->
+
+<section class="tour" id="tour">
+  <div class="tour-sticky">
+    <div class="wrap tour-head">
+      <div>
+        <div class="mono eyebrow">Inside the mission</div>
+        <h2 style="margin-top:22px">Four days worth<br><span class="accent">a whole year.</span></h2>
+      </div>
+      <div class="tour-count"><b id="tour-n">01</b>/ <span id="tour-total">06</span></div>
+    </div>
+    <div class="tour-track" id="tour-track">
+      <article class="tcard real">
+        <img src="img/tour-noite.jpg" alt="Toronto Stock Exchange entrance with the PDAC welcome screen" loading="lazy">
+        <div class="cap"><div class="mono">01 · The arrival</div><h3>Toronto stops.</h3><p>During PDAC week, even the stock exchange rolls out the welcome mat for mining.</p></div>
+      </article>
+      <article class="tcard">
+        <img src="img/tour-palco.jpg" alt="Metro Toronto Convention Centre" loading="lazy">
+        <div class="cap"><div class="mono">02 · The stage</div><h3>The center of the mining world.</h3><p>The entire mining value chain, from field to capital, under one roof.</p></div>
+      </article>
+      <article class="tcard">
+        <!-- Photo: Unsplash (free license, commercial use allowed) -->
+        <img src="img/tour-estandes.jpg?v=2" alt="Crowded exhibition hall" loading="lazy">
+        <div class="cap"><div class="mono">03 · The aisles</div><h3>The right booths.</h3><p>You don’t need to see them all. We know which ones are worth your time.</p></div>
+      </article>
+      <article class="tcard">
+        <!-- Photo: Unsplash (free license, commercial use allowed) -->
+        <img src="img/tour-reunioes.jpg?v=2" alt="Business meeting" loading="lazy">
+        <div class="cap"><div class="mono">04 · The meetings</div><h3>The right table.</h3><p>Pre-booked meetings with the people who matter to your business.</p></div>
+      </article>
+      <article class="tcard">
+        <img src="img/tour-happyhour.jpg" alt="Networking reception" loading="lazy">
+        <div class="cap"><div class="mono">05 · The receptions</div><h3>Where deals close.</h3><p>The biggest partnerships start away from the booths. We curate and book them for you.</p></div>
+      </article>
+      <article class="tcard">
+        <img src="img/tour-toronto.jpg" alt="Toronto skyline at sunset" loading="lazy">
+        <div class="cap"><div class="mono">06 · The city</div><h3>And then, Toronto.</h3><p>The CN Tower, world-class dining and Niagara Falls less than 2 hours away.</p></div>
+      </article>
+    </div>
+    <div class="wrap"><div class="tour-bar"><i id="tour-bar"></i></div></div>
+  </div>
+</section>
+
+<!-- QUEM -->
+<section class="sec founders" id="quem">
+  <div class="wrap f-grid">
+    <div>
+      <div class="mono eyebrow rv">The people behind it</div>
+      <p class="quote rv d1" style="margin-top:26px">“Going to PDAC without knowing the terrain is like walking into a negotiation <em>without an agenda</em>.”</p>
+      <p class="f-copy rv d2">We live in Canada and have been attending PDAC for over a decade. We know who is worth the meeting, which reception is worth the evening and how to turn a business card into a contract.</p>
+    </div>
+    <div class="rv d2">
+      <div class="people">
+        <div class="person"><div class="photo"><img src="img/ramon.jpg" alt="Ramon Dias" loading="lazy"></div><h4>Ramon Dias</h4><p>Founder · Next</p></div>
+        <div class="person"><div class="photo"><img src="img/flavia.jpg" alt="Flávia Saleme" loading="lazy"></div><h4>Flávia Saleme</h4><p>Founder · Next</p></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><b data-count="9">0</b><span>years living in Canada</span></div>
+        <div class="stat"><b data-count="10">0</b><span>years at PDAC</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="sec" id="como">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="mono eyebrow rv">How it works</div>
+        <h2 class="rv d1" style="margin-top:22px">Strategists,<br><span class="accent">not tour guides.</span></h2>
+      </div>
+      <p class="lead rv d2">Getting to PDAC is easy. Coming home with real business is the hard part. That’s why the mission starts months before the show and continues long after it.</p>
+    </div>
+    <div class="phases rv" id="phases">
+      <div class="progress"></div>
+      <div class="phase">
+        <div class="num">01 — BEFORE</div>
+        <h3>Prepare</h3>
+        <p>We map your goals, prospect the right contacts and confirm your meetings. Flights, hotel and visa are taken care of.</p>
+        <div class="tags"><span class="tag">Assessment</span><span class="tag">Agenda</span><span class="tag">Logistics</span></div>
+      </div>
+      <div class="phase">
+        <div class="num">02 — DURING</div>
+        <h3>Connect</h3>
+        <p>Four days with a ready-made agenda, a guided read of the trade floor and access to the receptions where real deals happen.</p>
+        <div class="tags"><span class="tag">Meetings</span><span class="tag">Receptions</span><span class="tag">Networking</span></div>
+      </div>
+      <div class="phase">
+        <div class="num">03 — AFTER</div>
+        <h3>Convert</h3>
+        <p>Follow-up on every contact, documented next steps and a local presence in Canada to keep conversations alive.</p>
+        <div class="tags"><span class="tag">Follow-up</span><span class="tag">Relationships</span><span class="tag">Results</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACOTES -->
+<section class="sec" id="pacotes">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="mono eyebrow rv">Packages</div>
+        <h2 class="rv d1" style="margin-top:22px">Choose the size<br>of your <span class="accent">mission.</span></h2>
+      </div>
+      <p class="lead rv d2">Each tier includes the one before it. Pricing is on request, tailored to your goals and the size of your delegation.</p>
+    </div>
+    <div class="pk-grid">
+      <article class="pk rv">
+        <div class="lvl"><i class="on"></i><i></i><i></i></div>
+        <h3>Essential</h3>
+        <p class="for">Arrive prepared and make the most of the event.</p>
+        <ul>
+          <li>Flight, hotel and visa guidance</li>
+          <li>Briefing and registration</li>
+          <li>Guided route through the halls</li>
+          <li>Curated side events</li>
+        </ul>
+        <div class="price">Pricing on request</div>
+        <button class="btn btn-ghost" data-pkg="Essential Experience">I want this <span class="arr">→</span></button>
+      </article>
+      <article class="pk featured rv d1">
+        <div class="lvl"><i class="on"></i><i class="on"></i><i></i></div>
+        <h3>Business Agenda</h3>
+        <p class="for">Come home with conversations that turn into proposals.</p>
+        <ul>
+          <li class="plus">Everything in Essential</li>
+          <li>Pre-trip assessment</li>
+          <li>Prospected and confirmed meetings</li>
+          <li>Agenda for up to 3 people</li>
+          <li>Daily on-site support</li>
+        </ul>
+        <div class="price">Pricing on request</div>
+        <button class="btn btn-primary" data-pkg="Business Agenda">I want this <span class="arr">→</span></button>
+      </article>
+      <article class="pk rv d2">
+        <div class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+        <h3>Executive Mission</h3>
+        <p class="for">For delegations and institutional presence.</p>
+        <ul>
+          <li class="plus">Everything in Business Agenda</li>
+          <li>Technical visit to a mine</li>
+          <li>Bilingual team</li>
+          <li>Marketing coverage</li>
+          <li>Private event and post-PDAC continuity</li>
+        </ul>
+        <div class="price">Pricing on request</div>
+        <button class="btn btn-ghost" data-pkg="Executive Mission">I want this <span class="arr">→</span></button>
+      </article>
+    </div>
+    <div class="pk-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+    <div class="pk-extra rv">
+      <div><strong>Post-PDAC Agenda.</strong> The show ends, the work goes on: follow-up meetings after the event and ongoing support in Canada.</div>
+      <a href="#missao" class="mono" style="color:var(--orange2);white-space:nowrap">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MONTE SUA MISSÃO -->
+<section class="sec builder" id="missao">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="mono eyebrow rv">Plan your mission</div>
+        <h2 class="rv d1" style="margin-top:22px">Your mission in<br><span class="accent">30 seconds.</span></h2>
+      </div>
+      <p class="lead rv d2">Pick your options and your message is ready<span class="desk-only">, taking shape on the phone beside</span>. One click and it lands straight in our WhatsApp.</p>
+    </div>
+    <div class="b-grid">
+      <div class="rv">
+        <div class="b-progress"><div class="bar"><i id="b-bar"></i></div><span class="mono" id="b-count">0 of 5</span></div>
+        <div class="q">
+          <div class="q-label"><span class="mono">01</span>You represent</div>
+          <div class="chips" data-q="perfil">
+            <button class="chip" data-v="min">Mining company</button>
+            <button class="chip" data-v="emp">Industry supplier</button>
+            <button class="chip" data-v="inv">Investor</button>
+            <button class="chip" data-v="gov">Government / institution</button>
+          </div>
+        </div>
+        <div class="q">
+          <div class="q-label"><span class="mono">02</span>Goal <small>pick as many as you like</small></div>
+          <div class="chips" data-q="obj" data-multi>
+            <button class="chip" data-v="attract investment">Attract investment</button>
+            <button class="chip" data-v="sell and find new clients">Sales / prospecting</button>
+            <button class="chip" data-v="technical partnerships">Technical partnerships</button>
+            <button class="chip" data-v="institutional positioning">Positioning</button>
+            <button class="chip" data-v="learn about the market">Market insight</button>
+          </div>
+        </div>
+        <div class="q">
+          <div class="q-label"><span class="mono">03</span>Group size</div>
+          <div class="chips" data-q="pessoas">
+            <button class="chip" data-v="just me">Just me</button>
+            <button class="chip" data-v="2 to 3 people">2–3</button>
+            <button class="chip" data-v="4 to 10 people">4–10</button>
+            <button class="chip" data-v="more than 10 people">10+</button>
+          </div>
+        </div>
+        <div class="q">
+          <div class="q-label"><span class="mono">04</span>Package of interest</div>
+          <div class="chips" data-q="pacote">
+            <button class="chip" data-v="Essential Experience">Essential</button>
+            <button class="chip" data-v="Business Agenda">Business Agenda</button>
+            <button class="chip" data-v="Executive Mission">Executive Mission</button>
+            <button class="chip" data-v="not sure yet">Not sure yet</button>
+          </div>
+        </div>
+        <div class="q">
+          <div class="q-label"><span class="mono">05</span>About you</div>
+          <div class="fields">
+            <label class="field"><input id="f-nome" placeholder="Your name" autocomplete="name"></label>
+            <label class="field"><input id="f-empresa" placeholder="Company or institution" autocomplete="organization"></label>
+          </div>
+        </div>
+        <div class="send-row">
+          <a id="send" class="btn btn-wa" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Send via WhatsApp</a>
+          <p class="note">You can review the message in WhatsApp before sending. We reply during business hours.</p>
+        </div>
+      </div>
+      <div class="phone-col rv d2">
+        <div class="phone" aria-hidden="true">
+          <div class="screen">
+            <div class="wa-top">
+              <div class="av">N›</div>
+              <div><b>Next · PDAC Mission</b><small>online</small></div>
+            </div>
+            <div class="wa-body">
+              <div class="day">TODAY</div>
+              <div class="typing" id="typing"><i></i><i></i><i></i></div>
+              <div class="bubble" id="bubble"></div>
+            </div>
+            <div class="wa-input"><div>Message</div><span><svg viewBox="0 0 24 24"><path fill="currentColor" d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap faq-grid">
+    <div>
+      <div class="mono eyebrow rv">FAQ</div>
+      <h2 class="rv d1" style="margin-top:22px">Quick<br>answers.</h2>
+    </div>
+    <div class="rv d1">
+      <details>
+        <summary>Do I need a visa for Canada?<span class="pm"></span></summary>
+        <p>It depends on your nationality and travel history. Many travellers only need an Electronic Travel Authorization (eTA); others need a visitor visa. Next guides you through the whole process well in advance.</p>
+      </details>
+      <details>
+        <summary>Do I need to speak English?<span class="pm"></span></summary>
+        <p>It helps, but it isn’t required. The Executive Mission includes a bilingual team sized to your meeting agenda.</p>
+      </details>
+      <details>
+        <summary>How far in advance should I book?<span class="pm"></span></summary>
+        <p>The earlier, the better. Hotels near the Convention Centre sell out early, and the most sought-after meetings are booked months ahead.</p>
+      </details>
+      <details>
+        <summary>What is Toronto like in March?<span class="pm"></span></summary>
+        <p>It’s still winter, with temperatures around freezing. The whole show is indoors, and in your free time you can visit the CN Tower and Niagara Falls, less than 2 hours from the city.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="final-bg" aria-hidden="true"><img src="img/final-toronto.jpg" alt="" loading="lazy"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="mono eyebrow rv">PDAC 2027 · March 7–10 · Toronto</div>
+    <h2 class="rv d1">The mining world <span class="accent">is waiting for you.</span></h2>
+    <div class="ctas rv d2">
+      <a href="#missao" class="btn btn-primary">Plan your mission <span class="arr">→</span></a>
+      <a class="btn btn-ghost js-wa" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <a href="#" class="logo" aria-label="Next">Ne<svg class="chev"><use href="#chev"/></svg>t</a>
+        <p class="f-tag">Strategy. Connection. Results.</p>
+        <p class="f-desc">Business and institutional missions to PDAC in Toronto, led by Brazilians who have lived in Canada for over 9 years.</p>
+        <div class="f-next">
+          <div class="days"><div><b id="f-days">000</b><small>days</small></div></div>
+          <div><span class="mono">Upcoming mission</span><strong>PDAC 2027</strong><span>March 7–10 · Toronto</span></div>
+        </div>
+      </div>
+      <nav class="f-col" aria-label="Footer">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="#tour">The experience</a></li>
+          <li><a href="#quem">About us</a></li>
+          <li><a href="#como">How it works</a></li>
+          <li><a href="#pacotes">Packages</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="f-col">
+        <h5>Packages</h5>
+        <ul>
+          <li><a href="#missao" data-pkg="Essential Experience">Essential Experience</a></li>
+          <li><a href="#missao" data-pkg="Business Agenda">Business Agenda</a></li>
+          <li><a href="#missao" data-pkg="Executive Mission">Executive Mission</a></li>
+          <li><a href="#pacotes">Post-PDAC Agenda</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h5>Get in touch</h5>
+        <div class="f-contact">
+          <a href="mailto:flavia@nextmining.com.br"><b>Flávia Saleme</b>flavia@nextmining.com.br</a>
+          <a href="mailto:ramon@nextmining.com.br"><b>Ramon Dias</b>ramon@nextmining.com.br</a>
+          <a class="btn btn-wa js-wa" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp</a>
+          <span class="loc">Brazil <svg width="10" height="13"><use href="#chev"/></svg> Toronto, Canada</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="f-mark" aria-hidden="true">Ne<svg><use href="#chev"/></svg>t</div>
+  <div class="wrap">
+    <div class="f-bottom">
+      <span>© 2026 Next · nextmining.com.br</span>
+      <span class="legal">Next is an independent company and is not affiliated with PDAC (Prospectors &amp; Developers Association of Canada).</span>
+      <a href="#">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<a class="fab js-wa" id="fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg><use href="#wa"/></svg></a>
+
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script>
+// ===== Config =====
+// TODO: número oficial da Next (só dígitos, com DDI). Vazio = o WhatsApp pede para escolher o contato.
+const WHATSAPP_NUMBER = '';
+const EVENT_START = new Date('2027-03-07T09:00:00-05:00');
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const waLink = text => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+document.querySelectorAll('.js-wa').forEach(a => a.href = waLink('Hi, Next! I’d like to know more about the PDAC 2027 Mission.'));
+
+// ===== Header + FAB =====
+const header = document.getElementById('top'), fab = document.getElementById('fab'), heroBg = document.getElementById('hero-bg'), sprog = document.getElementById('sprog');
+// onde a página já tem um botão de WhatsApp à vista, o flutuante sai para não cobrir nada
+const fabZones = [...document.querySelectorAll('#missao, .final, footer')];
+const onScroll = () => {
+  header.classList.toggle('scrolled', scrollY > 30);
+  const inZone = fabZones.some(z => { const r = z.getBoundingClientRect(); return r.top < innerHeight * .8 && r.bottom > innerHeight * .2; });
+  fab.classList.toggle('show', scrollY > innerHeight * .7 && !inZone);
+  if (!reduceMotion && scrollY < innerHeight * 1.2) heroBg.style.transform = `translate3d(0,${scrollY * .3}px,0)`;
+  sprog.style.transform = `scaleX(${scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight)})`;
+};
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+// ===== Pacotes (carrossel no celular) =====
+(() => {
+  const grid = document.querySelector('.pk-grid'), dots = [...document.querySelectorAll('.pk-dots i')];
+  grid.addEventListener('scroll', () => {
+    const cards = [...grid.children], mid = grid.scrollLeft + grid.clientWidth / 2;
+    let i = 0; cards.forEach((c, k) => { if (c.offsetLeft - cards[0].offsetLeft < mid - 16) i = k; });
+    dots.forEach((d, k) => d.classList.toggle('on', k === i));
+  }, {passive:true});
+})();
+
+// ===== Countdown =====
+const pad = (n, l=2) => String(n).padStart(l, '0');
+function tickCountdown(){
+  let s = Math.max(0, Math.floor((EVENT_START - Date.now()) / 1000));
+  const d = Math.floor(s / 86400); s %= 86400;
+  document.getElementById('cd-d').textContent = pad(d, 3);
+  document.getElementById('f-days').textContent = d;
+  document.getElementById('cd-h').textContent = pad(Math.floor(s / 3600));
+  document.getElementById('cd-m').textContent = pad(Math.floor(s % 3600 / 60));
+  document.getElementById('cd-s').textContent = pad(s % 60);
+}
+tickCountdown(); setInterval(tickCountdown, 1000);
+
+// ===== Reveal + counters =====
+const io = new IntersectionObserver(entries => entries.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add('in');
+  e.target.querySelectorAll('[data-count]').forEach(countUp);
+  io.unobserve(e.target);
+}), {threshold:.18});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+function countUp(el){
+  const to = +el.dataset.count, t0 = performance.now(), dur = 1400;
+  const step = t => { const p = Math.min(1, (t - t0) / dur); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + '+'; if (p < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+
+// ===== Monte sua missão =====
+const state = {perfil:null, obj:[], pessoas:null, pacote:null, nome:'', empresa:''};
+const perfilTxt = {min:'I represent a mining company', emp:'I represent a mining industry supplier', inv:'I’m an investor', gov:'I represent a government/institution'};
+const bubble = document.getElementById('bubble'), typing = document.getElementById('typing'), send = document.getElementById('send');
+const bBar = document.getElementById('b-bar'), bCount = document.getElementById('b-count');
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let lastChanged = null, typingTimer;
+
+function listPt(a){ return a.length < 2 ? a.join('') : a.slice(0,-1).join(', ') + ' and ' + a.at(-1); }
+function message(html){
+  const f = (key, val) => val ? (html ? `<span class="hl" data-k="${key}">${esc(val)}</span>` : val) : (html ? '<span class="ph"></span>' : null);
+  const lines = [];
+  const nome = f('nome', state.nome.trim()), emp = state.empresa.trim() ? f('empresa', state.empresa.trim()) : null;
+  const perfil = f('perfil', state.perfil && perfilTxt[state.perfil]);
+  lines.push(`Hi, Next! I’m ${nome || 'me'}${emp ? ', from ' + emp : ''}${perfil ? ', and ' + perfil : ''}.`);
+  lines.push(`I’m interested in the *PDAC 2027 Mission* (Toronto, March 7–10).`);
+  const det = [];
+  const o = f('obj', state.obj.length && listPt(state.obj)); if (o) det.push(`• Goal: ${o}`);
+  const p = f('pessoas', state.pessoas); if (p) det.push(`• Group: ${p}`);
+  const k = f('pacote', state.pacote); if (k) det.push(`• Package: ${k}`);
+  if (det.length) lines.push('', ...det);
+  lines.push('', 'Can we talk?');
+  return lines.join('\n');
+}
+function render(){
+  const now = new Date();
+  bubble.innerHTML = message(true).replace(/\*(.+?)\*/g, '<b>$1</b>')
+    + `<div class="meta">${pad(now.getHours())}:${pad(now.getMinutes())}<svg viewBox="0 0 16 11"><path d="M11.07.65L4.6 7.12 1.93 4.45.7 5.68l3.9 3.9 7.7-7.7zM15.3.65L8.83 7.12l-.9-.9-1.23 1.23 2.13 2.13 7.7-7.7z" fill="currentColor"/></svg></div>`;
+  send.href = waLink(message(false));
+  const done = [state.perfil, state.obj.length, state.pessoas, state.pacote, state.nome.trim()].filter(Boolean).length;
+  bBar.style.width = done * 20 + '%';
+  bCount.textContent = done === 5 ? 'Ready to send ✓' : `${done} of 5`;
+  bCount.classList.toggle('done', done === 5);
+  send.classList.toggle('ready', done === 5);
+  if (lastChanged){
+    bubble.querySelectorAll(`.hl[data-k="${lastChanged}"]`).forEach(el => { el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 700); });
+  }
+}
+function changed(key){
+  lastChanged = key;
+  if (reduceMotion) return render();
+  typing.classList.add('show'); bubble.style.opacity = .35;
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(() => { typing.classList.remove('show'); bubble.style.opacity = 1; render(); }, 420);
+}
+document.querySelectorAll('.chips').forEach(group => {
+  const key = group.dataset.q, multi = group.hasAttribute('data-multi');
+  group.addEventListener('click', e => {
+    const chip = e.target.closest('.chip'); if (!chip) return;
+    const v = chip.dataset.v, on = chip.getAttribute('aria-pressed') === 'true';
+    if (multi){
+      chip.setAttribute('aria-pressed', !on);
+      state[key] = on ? state[key].filter(x => x !== v) : [...state[key], v];
+    } else {
+      group.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', 'false'));
+      chip.setAttribute('aria-pressed', !on);
+      state[key] = on ? null : v;
+    }
+    changed(key);
+  });
+});
+[['f-nome','nome'],['f-empresa','empresa']].forEach(([id,key]) => {
+  document.getElementById(id).addEventListener('input', e => { state[key] = e.target.value; lastChanged = key; render(); });
+});
+send.addEventListener('click', e => {
+  if (!state.nome.trim()){ e.preventDefault(); const n = document.getElementById('f-nome'); n.focus(); n.scrollIntoView({block:'center', behavior:'smooth'}); return; }
+  // TODO: salvar o lead (planilha/CRM) antes de abrir o WhatsApp.
+});
+document.querySelectorAll('[data-pkg]').forEach(b => b.addEventListener('click', () => {
+  const group = document.querySelector('.chips[data-q="pacote"]');
+  const chip = group.querySelector(`.chip[data-v="${b.dataset.pkg}"]`);
+  if (chip.getAttribute('aria-pressed') !== 'true') chip.click();
+  document.getElementById('missao').scrollIntoView({behavior:'smooth'});
+}));
+render();
+
+// ===== Por dentro da missão: galeria horizontal presa ao scroll (desktop) / swipe (mobile) =====
+(function(){
+  const tour = document.getElementById('tour'), track = document.getElementById('tour-track');
+  const cards = [...track.children], bar = document.getElementById('tour-bar'), num = document.getElementById('tour-n');
+  document.getElementById('tour-total').textContent = pad(cards.length);
+  const pinned = () => innerWidth > 1020;
+  function progress(p){
+    bar.style.transform = `scaleX(${p})`;
+    num.textContent = pad(Math.round(p * (cards.length - 1)) + 1);
+  }
+  function size(){
+    tour.style.height = pinned() ? innerHeight + track.scrollWidth - innerWidth + 'px' : '';
+    update();
+  }
+  function update(){
+    if (!pinned()) return;
+    const total = tour.offsetHeight - innerHeight;
+    const p = Math.min(1, Math.max(0, -tour.getBoundingClientRect().top / total));
+    track.style.transform = `translate3d(${-p * (track.scrollWidth - innerWidth)}px,0,0)`;
+    progress(p);
+    cards.forEach(c => {
+      const r = c.getBoundingClientRect(), off = (r.left + r.width / 2 - innerWidth / 2) / innerWidth;
+      c.querySelector('img').style.transform = `scale(1.15) translate3d(${off * -40}px,0,0)`;
+    });
+  }
+  track.addEventListener('scroll', () => { if (!pinned()) progress(track.scrollLeft / Math.max(1, track.scrollWidth - track.clientWidth)); }, {passive:true});
+  addEventListener('scroll', update, {passive:true});
+  addEventListener('resize', size);
+  size();
+})();
+
+// ===== Globe =====
+(function(){
+  const cvs = document.getElementById('globe'), ctx = cvs.getContext('2d');
+  const rad = Math.PI / 180;
+  const BR = [-15.8, -47.9], TO = [43.65, -79.38];
+  let W, H, R, cx, cy, dpr;
+  let land = [], ocean = [];
+  const vec = (lat, lon) => [Math.cos(lat*rad)*Math.sin(lon*rad), Math.sin(lat*rad), Math.cos(lat*rad)*Math.cos(lon*rad)];
+  const dist = (a, b) => Math.acos(Math.min(1, a[0]*b[0] + a[1]*b[1] + a[2]*b[2])) / rad;
+  const vBR = vec(...BR), vTO = vec(...TO);
+  const vBRc = vec(-11, -52), vON = vec(47, -82);
+
+  // cartões de números: cada um ligado por uma linha a um ponto do globo
+  const anchors = {to: vTO, af: vec(13, -14)};
+  const fmt = new Intl.NumberFormat(document.documentElement.lang);
+  const chips = [...document.querySelectorAll('.gstat')].map((el, i) => ({el, v: anchors[el.dataset.anchor], at: reduceMotion ? 0 : 3.1 + i * .45, x: 0, y: 0, shown: false}));
+  function placeChips(){
+    chips.forEach(c => {
+      const w = c.el.offsetWidth, h = c.el.offsetHeight, l = c.el.offsetLeft, t = c.el.offsetTop;
+      const left = l + w / 2 < cx;
+      c.x = left ? l + w : l; c.y = t + h / 2;
+    });
+  }
+  function showChip(c){
+    c.shown = true; c.el.classList.add('show');
+    const b = c.el.querySelector('b'), to = +b.dataset.n, t0 = performance.now();
+    const step = now => { const p = Math.min(1, (now - t0) / 1600); b.textContent = fmt.format(Math.round(to * (1 - Math.pow(1 - p, 4)))); if (p < 1) requestAnimationFrame(step); };
+    reduceMotion ? b.textContent = fmt.format(to) : requestAnimationFrame(step);
+  }
+
+  function resize(){
+    const r = cvs.getBoundingClientRect();
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = r.width; H = r.height;
+    cvs.width = W * dpr; cvs.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    R = Math.min(W, H) * .4; cx = W / 2; cy = H / 2;
+    placeChips();
+  }
+  new ResizeObserver(resize).observe(cvs); resize();
+  document.fonts && document.fonts.ready.then(placeChips);
+
+  // faint sphere texture (fibonacci points)
+  for (let i = 0, n = 1400; i < n; i++){
+    const y = 1 - (i / (n - 1)) * 2, r = Math.sqrt(1 - y*y), th = i * 2.39996;
+    ocean.push([Math.cos(th) * r, y, Math.sin(th) * r]);
+  }
+
+  async function loadLand(){
+    try {
+      const topo = await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/land-110m.json').then(r => r.json());
+      const geo = topojson.feature(topo, topo.objects.land);
+      const S = 4, mw = 360*S, mh = 180*S;
+      const m = document.createElement('canvas'); m.width = mw; m.height = mh;
+      const mc = m.getContext('2d'); mc.fillStyle = '#fff';
+      (geo.features || [geo]).forEach(f => {
+        const g = f.geometry, polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+        polys.forEach(poly => {
+          mc.beginPath();
+          poly.forEach(ring => ring.forEach(([lo, la], i) => { const x = (lo + 180) * S, y = (90 - la) * S; i ? mc.lineTo(x, y) : mc.moveTo(x, y); }));
+          mc.fill('evenodd');
+        });
+      });
+      const px = mc.getImageData(0, 0, mw, mh).data;
+      const step = 1.15, pts = [];
+      for (let la = -56; la <= 80; la += step){
+        const ls = step / Math.max(Math.cos(la*rad), .2);
+        for (let lo = -180; lo < 180; lo += ls){
+          const x = Math.floor((lo + 180) * S), y = Math.floor((90 - la) * S);
+          if (px[(y * mw + x) * 4 + 3] > 120){
+            const v = vec(la, lo);
+            const tint = dist(v, vBRc) < 19 ? 1 : dist(v, vON) < 9 ? 2 : 0;
+            pts.push([v[0], v[1], v[2], tint]);
+          }
+        }
+      }
+      land = pts;
+    } catch(e){ /* sem mapa: o globo continua com a textura pontilhada */ }
+  }
+  loadLand();
+
+  // rotation state
+  let lon0 = -64, lat0 = 14, dragLon = 0, dragLat = 0, velLon = 0, dragging = false, lastX = 0, lastY = 0;
+  cvs.addEventListener('pointerdown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; cvs.setPointerCapture(e.pointerId); });
+  cvs.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    const dx = e.clientX - lastX, dy = e.clientY - lastY; lastX = e.clientX; lastY = e.clientY;
+    velLon = -dx * .3; dragLon += velLon; dragLat = Math.max(-30, Math.min(30, dragLat + dy * .2));
+  });
+  const end = () => dragging = false;
+  cvs.addEventListener('pointerup', end); cvs.addEventListener('pointercancel', end);
+
+  let cL, sL, cP, sP;
+  function proj(v){
+    const x1 = v[0]*cL - v[2]*sL, z1 = v[2]*cL + v[0]*sL;
+    const y2 = v[1]*cP - z1*sP, z2 = v[1]*sP + z1*cP;
+    return [cx + R*x1, cy - R*y2, z2, x1, y2];
+  }
+
+  // great-circle arc, lifted
+  const omega = Math.acos(vBR[0]*vTO[0] + vBR[1]*vTO[1] + vBR[2]*vTO[2]);
+  const arc = [];
+  for (let i = 0, n = 90; i <= n; i++){
+    const t = i / n, a = Math.sin((1-t)*omega) / Math.sin(omega), b = Math.sin(t*omega) / Math.sin(omega);
+    const h = 1 + .28 * Math.sin(Math.PI * t);
+    arc.push([(a*vBR[0] + b*vTO[0])*h, (a*vBR[1] + b*vTO[1])*h, (a*vBR[2] + b*vTO[2])*h]);
+  }
+
+  let running = true, t0 = performance.now();
+  new IntersectionObserver(([e]) => { running = e.isIntersecting; if (running) requestAnimationFrame(frame); }).observe(cvs);
+
+  function frame(now){
+    const t = (now - t0) / 1000;
+    if (!dragging){ velLon *= .94; dragLon += velLon; }
+    const lon = lon0 + dragLon + (reduceMotion ? 0 : Math.sin(t * .18) * 9);
+    const lat = lat0 + dragLat;
+    cL = Math.cos(lon*rad); sL = Math.sin(lon*rad); cP = Math.cos(lat*rad); sP = Math.sin(lat*rad);
+
+    ctx.clearRect(0, 0, W, H);
+    // atmosphere
+    let g = ctx.createRadialGradient(cx, cy, R*.9, cx, cy, R*1.32);
+    g.addColorStop(0, 'rgba(232,96,28,.22)'); g.addColorStop(1, 'rgba(232,96,28,0)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, R*1.32, 0, 7); ctx.fill();
+    // sphere body
+    g = ctx.createRadialGradient(cx - R*.35, cy - R*.4, R*.1, cx, cy, R);
+    g.addColorStop(0, '#232326'); g.addColorStop(1, '#0F0F10');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.fill();
+    ctx.strokeStyle = 'rgba(255,138,61,.25)'; ctx.lineWidth = 1; ctx.stroke();
+
+    // ocean texture
+    ctx.fillStyle = 'rgba(255,255,255,.07)'; ctx.beginPath();
+    for (const v of ocean){ const p = proj(v); if (p[2] > 0) ctx.rect(p[0], p[1], 1, 1); }
+    ctx.fill();
+
+    // land dots in alpha buckets
+    const buckets = [[],[],[],[]], tinted = [[],[]];
+    const ds = Math.max(1.3, R / 210);
+    for (const v of land){
+      const p = proj(v); if (p[2] <= 0) continue;
+      if (v[3]) tinted[v[3]-1].push(p);
+      else buckets[Math.min(3, Math.floor(p[2]*4))].push(p);
+    }
+    buckets.forEach((b, i) => {
+      ctx.fillStyle = `rgba(244,241,236,${.12 + i*.17})`; ctx.beginPath();
+      for (const p of b) ctx.rect(p[0] - ds/2, p[1] - ds/2, ds, ds);
+      ctx.fill();
+    });
+    ctx.fillStyle = 'rgba(232,96,28,.95)'; ctx.beginPath();
+    for (const p of tinted[0]) ctx.rect(p[0] - ds/2, p[1] - ds/2, ds, ds);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(255,138,61,.8)'; ctx.beginPath();
+    for (const p of tinted[1]) ctx.rect(p[0] - ds/2, p[1] - ds/2, ds, ds);
+    ctx.fill();
+
+    // arc
+    const prog = reduceMotion ? 1 : Math.min(1, Math.max(0, (t - .8) / 2.2));
+    const ease = 1 - Math.pow(1 - prog, 3);
+    const last = Math.floor(ease * (arc.length - 1));
+    const P = arc.map(proj);
+    const vis = p => p[2] > 0 || (p[3]*p[3] + p[4]*p[4]) > 1;
+    ctx.save();
+    ctx.lineCap = 'round'; ctx.shadowColor = 'rgba(255,120,40,.9)'; ctx.shadowBlur = 14;
+    ctx.strokeStyle = '#FF7A2E'; ctx.lineWidth = 2.2;
+    ctx.beginPath(); let pen = false;
+    for (let i = 0; i <= last; i++){ const p = P[i]; if (!vis(p)){ pen = false; continue; } pen ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); pen = true; }
+    ctx.stroke();
+    // flowing particles
+    if (prog >= 1 && !reduceMotion){
+      ctx.fillStyle = '#FFF4EA'; ctx.shadowBlur = 16;
+      for (let k = 0; k < 3; k++){
+        const u = ((t * .28) + k / 3) % 1, p = P[Math.floor(u * (P.length - 1))];
+        if (vis(p)){ ctx.beginPath(); ctx.arc(p[0], p[1], 2.4, 0, 7); ctx.fill(); }
+      }
+    } else if (last > 0 && vis(P[last])){
+      ctx.fillStyle = '#FFF4EA'; ctx.beginPath(); ctx.arc(P[last][0], P[last][1], 3.2, 0, 7); ctx.fill();
+    }
+    ctx.restore();
+
+    // endpoints
+    [[vBR, 'BRAZIL', 0], [vTO, 'TORONTO · PDAC', 1]].forEach(([v, label, i]) => {
+      const p = proj(v); if (p[2] <= .05) return;
+      if (i === 1 && prog < 1) return;
+      const ph = ((t + i * .8) % 1.8) / 1.8;
+      ctx.strokeStyle = `rgba(255,138,61,${(1 - ph) * .9})`; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.arc(p[0], p[1], 4 + ph * 18, 0, 7); ctx.stroke();
+      ctx.fillStyle = '#FF8A3D'; ctx.beginPath(); ctx.arc(p[0], p[1], 4, 0, 7); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(p[0], p[1], 1.6, 0, 7); ctx.fill();
+      ctx.font = '500 11px "JetBrains Mono", monospace'; ctx.fillStyle = 'rgba(244,241,236,.9)';
+      ctx.textAlign = i ? 'right' : 'left';
+      // no celular o globo fica atrás do título; o rótulo brigaria com o texto
+      if (innerWidth > 640) ctx.fillText(label, p[0] + (i ? -14 : 14), p[1] + (i ? -10 : 4));
+    });
+
+    // linhas até os cartões de números
+    if (chips.length && chips[0].el.offsetParent){
+      ctx.save(); ctx.setLineDash([4, 4]); ctx.lineWidth = 1.3;
+      chips.forEach(c => {
+        if (t < c.at) return;
+        if (!c.shown) showChip(c);
+        const a = Math.min(1, (t - c.at) / .9), p = proj(c.v);
+        if (p[2] <= .02) return;
+        const e = Math.min(1, (t - c.at) / .7);
+        const ex = p[0] + (c.x - p[0]) * e, ey = p[1] + (c.y - p[1]) * e;
+        ctx.strokeStyle = `rgba(255,138,61,${.85 * a})`;
+        ctx.beginPath(); ctx.moveTo(p[0], p[1]); ctx.lineTo(ex, ey); ctx.stroke();
+        ctx.fillStyle = `rgba(255,138,61,${a})`;
+        ctx.beginPath(); ctx.arc(p[0], p[1], 2.6, 0, 7); ctx.fill();
+        ctx.beginPath(); ctx.arc(ex, ey, 2, 0, 7); ctx.fill();
+      });
+      ctx.restore();
+    }
+
+    if (running) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
