@@ -14,7 +14,7 @@
   --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
   --text:#F4F1EC; --muted:#9A968F; --dim:#6A6762;
   --orange:#EA680D; --orange2:#F48A3B; --orange-soft:rgba(234,104,13,.14);
-  --blue:#0624A6; --wa:#25D366;
+  --blue:#0624A6; --blue-light:#6486FF; --wa:#25D366;
   --radius:18px;
   --max:1240px;
   --sans:"Inter Tight",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
@@ -146,6 +146,9 @@ section{position:relative}
 .phase .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
 .tag{font-size:13px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
 
+.phase-icon{display:grid;place-items:center;width:54px;height:54px;margin-bottom:24px;border-radius:16px;background:#F4F1EC;box-shadow:0 8px 28px rgba(0,0,0,.14)}
+.phase-icon svg{width:30px;height:30px;fill:none;stroke:var(--blue);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.phase-icon .detail{stroke:var(--orange)}
 /* founders */
 .founders{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
 .quote{font-size:clamp(30px,3.8vw,54px);font-weight:600;letter-spacing:-.03em;line-height:1.12;max-width:22ch}
@@ -546,18 +549,21 @@ footer{position:relative;border-top:1px solid var(--line);background:var(--bg2);
     <div class="phases rv" id="phases">
       <div class="progress"></div>
       <div class="phase">
+        <div class="phase-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="5" y="6" width="22" height="22" rx="3"/><path d="M10 3v6m12-6v6M5 13h22"/><path class="detail" d="m11 21 3 3 7-7"/></svg></div>
         <div class="num">01 — ANTES</div>
         <h3>Preparar</h3>
         <p>Entendemos seu objetivo, prospectamos os contatos certos e confirmamos as reuniões. Passagem, hotel e visto ficam resolvidos.</p>
         <div class="tags"><span class="tag">Diagnóstico</span><span class="tag">Agenda</span><span class="tag">Logística</span></div>
       </div>
       <div class="phase">
+        <div class="phase-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="4"/><circle cx="6" cy="6" r="3"/><circle cx="26" cy="6" r="3"/><circle cx="6" cy="26" r="3"/><circle cx="26" cy="26" r="3"/><path class="detail" d="m8 8 5 5m6 0 5-5M8 24l5-5m6 0 5 5"/></svg></div>
         <div class="num">02 — DURANTE</div>
         <h3>Conectar</h3>
         <p>Quatro dias com agenda montada, leitura dos pavilhões e acesso aos happy hours onde os negócios de verdade acontecem.</p>
         <div class="tags"><span class="tag">Reuniões</span><span class="tag">Happy hours</span><span class="tag">Networking</span></div>
       </div>
       <div class="phase">
+        <div class="phase-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 5v23h23M10 22v-5m7 5V12m7 10V7"/><path class="detail" d="m9 12 8-7 6-1m-5 0h6v6"/></svg></div>
         <div class="num">03 — DEPOIS</div>
         <h3>Converter</h3>
         <p>Follow-up de cada contato, próximos passos registrados e presença local no Canadá para manter as conversas vivas.</p>
@@ -1152,7 +1158,7 @@ render();
       else buckets[Math.min(3, Math.floor(p[2]*4))].push(p);
     }
     buckets.forEach((b, i) => {
-      ctx.fillStyle = `rgba(244,241,236,${.12 + i*.17})`; ctx.beginPath();
+      ctx.fillStyle = `rgba(100,134,255,${.22 + i*.21})`; ctx.beginPath();
       for (const p of b) ctx.rect(p[0] - ds/2, p[1] - ds/2, ds, ds);
       ctx.fill();
     });
