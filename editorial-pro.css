@@ -91,7 +91,7 @@ select:focus-visible,
 }
 .mini-label {
   color: var(--muted);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   font-weight: 500;
@@ -128,7 +128,7 @@ select:focus-visible,
 .button.small {
   padding: 12px 18px;
   min-height: 42px;
-  font-size: 11px;
+  font-size: 12px;
   gap: 17px;
 }
 .button.secondary {
@@ -261,7 +261,7 @@ select:focus-visible,
   margin-left: -12px;
 }
 .hero-people p {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 1.7;
   margin: 0;
@@ -356,7 +356,7 @@ select:focus-visible,
   margin: 4px 0;
 }
 .event-mark small {
-  font-size: 9px;
+  font-size: 12px;
   color: var(--muted);
 }
 .event-card p {
@@ -370,7 +370,7 @@ select:focus-visible,
   font-weight: 500;
 }
 .event-card > div > span {
-  font-size: 9px;
+  font-size: 12px;
   color: var(--muted);
 }
 .event-context {
@@ -406,12 +406,12 @@ select:focus-visible,
 }
 .event-stats dd {
   margin: 8px 0 0;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
 }
 .source-note {
   grid-column: 2;
-  font-size: 9px;
+  font-size: 12px;
   color: var(--muted);
   margin: 20px 0 0;
   padding-left: 30px;
@@ -497,7 +497,7 @@ h2 {
 }
 .experience-copy p {
   color: #ffffffc7;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.8;
   max-width: 285px;
   margin: 0;
@@ -509,7 +509,7 @@ h2 {
   gap: 26px;
   padding: 28px 0 0;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 12px;
   flex-wrap: wrap;
 }
 .experience-foot i {
@@ -541,7 +541,7 @@ h2 {
   border: 1px solid #dce0e7;
   border-radius: 100px;
   padding: 12px 16px;
-  font-size: 11px;
+  font-size: 12px;
   color: #636a76;
   background: transparent;
 }
@@ -605,7 +605,7 @@ h2 {
   display: flex;
   gap: 10px;
   align-items: baseline;
-  font-size: 11px;
+  font-size: 12px;
   color: #606874;
   padding: 6px 0;
   line-height: 1.7;
@@ -663,7 +663,7 @@ h2 {
 .founder-facts span {
   display: block;
   color: var(--muted);
-  font-size: 9px;
+  font-size: 12px;
 }
 .founder-photos {
   display: grid;
@@ -692,7 +692,7 @@ h2 {
 .founder-photos figcaption span {
   display: block;
   color: var(--muted);
-  font-size: 9px;
+  font-size: 12px;
   margin-top: 4px;
   font-weight: 400;
 }
@@ -718,7 +718,7 @@ h2 {
   margin-bottom: 24px;
 }
 .journey-card .mini-label {
-  font-size: 9px;
+  font-size: 12px;
 }
 .journey-card h3 {
   font-size: 30px;
@@ -735,7 +735,7 @@ h2 {
   margin: 0 0 20px;
 }
 .journey-card .clean-list li {
-  font-size: 10px;
+  font-size: 12px;
 }
 .packages {
   padding-bottom: 75px;
@@ -763,7 +763,7 @@ h2 {
 }
 .package-for {
   color: var(--blue);
-  font-size: 10px;
+  font-size: 12px;
   margin: 0 0 17px;
 }
 .package-card h3 {
@@ -786,18 +786,18 @@ h2 {
   margin-bottom: 30px;
 }
 .package-card .clean-list li {
-  font-size: 10px;
+  font-size: 12px;
   padding: 7px 0;
 }
 .package-card .button {
-  font-size: 11px;
+  font-size: 12px;
   gap: 15px;
   padding: 14px 18px;
   min-height: 48px;
 }
 .package-price {
   display: block;
-  font-size: 9px;
+  font-size: 12px;
   color: var(--muted);
   text-align: center;
   margin-top: 14px;
@@ -832,7 +832,7 @@ table {
   width: 100%;
   min-width: 690px;
   border-collapse: collapse;
-  font-size: 11px;
+  font-size: 12px;
   text-align: left;
 }
 th,
@@ -850,7 +850,7 @@ tbody th {
   color: var(--muted);
 }
 .comparison > p {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   max-width: 600px;
   margin: 10px 0 22px;
@@ -901,7 +901,7 @@ tbody th {
 .step-progress > span {
   flex: 1;
   color: #89919e;
-  font-size: 10px;
+  font-size: 12px;
   padding-top: 11px;
   border-top: 2px solid #e0e4ea;
 }
@@ -926,7 +926,7 @@ legend {
   padding: 0;
 }
 legend small {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   margin-left: 8px;
   font-weight: 400;
@@ -953,7 +953,7 @@ legend small {
   border: 1px solid #dce1e8;
   border-radius: 9px;
   color: #69717f;
-  font-size: 11px;
+  font-size: 12px;
   padding: 12px 15px;
   transition:
     background 0.2s,
@@ -977,7 +977,7 @@ legend small {
 }
 .field-label > span {
   font-weight: 400;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   margin-left: 5px;
 }
@@ -1007,7 +1007,7 @@ legend small {
 }
 .form-error {
   min-height: 18px;
-  font-size: 11px;
+  font-size: 12px;
   color: #ad3927;
   margin: 0 0 12px;
 }
@@ -1036,7 +1036,7 @@ legend small {
   background: #146339;
 }
 .privacy-note {
-  font-size: 9px;
+  font-size: 12px;
   color: var(--muted);
   margin: 19px 0 0;
   line-height: 1.8;
@@ -1070,7 +1070,7 @@ legend small {
   padding: 28px 0 22px;
 }
 .preview-event > span {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--orange);
 }
 .preview-event h3 {
@@ -1089,11 +1089,11 @@ legend small {
 }
 #brief-summary dt {
   color: var(--muted);
-  font-size: 9px;
+  font-size: 12px;
   margin-bottom: 5px;
 }
 #brief-summary dd {
-  font-size: 11px;
+  font-size: 12px;
   margin: 0;
   line-height: 1.8;
 }
@@ -1106,12 +1106,12 @@ legend small {
   margin-top: 17px;
 }
 .preview-contact p {
-  font-size: 10px;
+  font-size: 12px;
   margin: 0;
   line-height: 1.6;
 }
 .preview-contact p span {
-  font-size: 9px;
+  font-size: 12px;
   color: var(--muted);
 }
 .faq-section {
@@ -1186,7 +1186,7 @@ legend small {
 }
 .closing-date {
   display: block;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   margin-top: 20px;
 }
@@ -1210,12 +1210,12 @@ legend small {
 }
 .footer-brand > span {
   display: block;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   line-height: 1.8;
 }
 .footer-main h3 {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   margin: 3px 0 19px;
 }
@@ -1232,7 +1232,7 @@ legend small {
 }
 .footer-main nav > a,
 .footer-contact > a {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   overflow-wrap: anywhere;
   max-width: 100%;
@@ -1246,7 +1246,7 @@ legend small {
   display: flex;
   justify-content: space-between;
   gap: 25px;
-  font-size: 9px;
+  font-size: 12px;
   color: var(--muted);
   line-height: 1.8;
 }
@@ -1279,7 +1279,7 @@ legend small {
   }
   .desktop-nav {
     gap: 20px;
-    font-size: 11px;
+    font-size: 12px;
   }
   .hero {
     gap: 40px;
@@ -1310,10 +1310,10 @@ legend small {
     padding-right: 16px;
   }
   .event-card p {
-    font-size: 11px;
+    font-size: 12px;
   }
   .event-card > div > span {
-    font-size: 8px;
+    font-size: 12px;
   }
   .event-stats {
     gap: 17px;
@@ -1408,15 +1408,15 @@ legend small {
     font-size: 13px;
   }
   .hero-people p {
-    font-size: 9px;
+    font-size: 12px;
   }
   .hero-actions .button {
-    font-size: 11px;
+    font-size: 12px;
     padding: 14px 18px;
     gap: 18px;
   }
   .hero-actions .text-link {
-    font-size: 10px;
+    font-size: 12px;
   }
   .destination-photo {
     height: 480px;
@@ -1438,7 +1438,7 @@ legend small {
     font-size: 25px;
   }
   .event-card p {
-    font-size: 10px;
+    font-size: 12px;
   }
   .event-card > div > span {
     line-height: 1.5;
@@ -1448,7 +1448,7 @@ legend small {
     column-gap: 20px;
   }
   .context-intro .mini-label {
-    font-size: 8px;
+    font-size: 12px;
   }
   .context-intro p {
     font-size: 17px;
@@ -1460,7 +1460,7 @@ legend small {
     font-size: 29px;
   }
   .event-stats dd {
-    font-size: 9px;
+    font-size: 12px;
   }
   .section-head {
     display: block;
@@ -1471,7 +1471,7 @@ legend small {
     margin-top: 25px;
   }
   .experience-copy p {
-    font-size: 10px;
+    font-size: 12px;
   }
   .experience-card {
     min-height: 370px;
@@ -1481,7 +1481,7 @@ legend small {
   }
   .experience-foot {
     gap: 15px;
-    font-size: 9px;
+    font-size: 12px;
   }
   .audience-layout {
     gap: 28px;
@@ -1493,7 +1493,7 @@ legend small {
     font-size: 12px;
   }
   .audience-tabs button {
-    font-size: 10px;
+    font-size: 12px;
     padding: 11px 13px;
   }
   .audience-panel {
@@ -1557,13 +1557,13 @@ legend small {
   }
   .option > span {
     padding: 11px;
-    font-size: 10px;
+    font-size: 12px;
   }
   .form-actions .button {
     min-width: 0;
   }
   .whatsapp-button {
-    font-size: 11px;
+    font-size: 12px;
     gap: 13px;
     padding: 15px;
   }
@@ -1596,7 +1596,7 @@ legend small {
   .button.small {
     padding: 11px 14px;
     gap: 10px;
-    font-size: 10px;
+    font-size: 12px;
   }
   .nav-actions {
     gap: 10px;
@@ -1607,7 +1607,7 @@ legend small {
     padding-bottom: 37px;
   }
   .hero .eyebrow {
-    font-size: 10px;
+    font-size: 12px;
   }
   .hero h1 {
     font-size: clamp(65px, 17vw, 90px);
@@ -1625,17 +1625,17 @@ legend small {
   .hero-actions .button {
     min-height: 48px;
     padding: 14px 17px;
-    font-size: 11px;
+    font-size: 12px;
   }
   .hero-actions .text-link {
-    font-size: 10px;
+    font-size: 12px;
     gap: 10px;
   }
   .hero-people {
     margin-top: 25px;
   }
   .hero-people p {
-    font-size: 10px;
+    font-size: 12px;
   }
   .hero-visual {
     margin-top: 33px;
@@ -1656,10 +1656,10 @@ legend small {
     font-size: 49px;
   }
   .destination-photo figcaption > span {
-    font-size: 8px;
+    font-size: 12px;
   }
   .destination-photo small {
-    font-size: 8px;
+    font-size: 12px;
   }
   .event-card {
     left: 14px;
@@ -1675,13 +1675,13 @@ legend small {
     font-size: 27px;
   }
   .event-mark small {
-    font-size: 8px;
+    font-size: 12px;
   }
   .event-card p {
-    font-size: 10px;
+    font-size: 12px;
   }
   .event-card > div > span {
-    font-size: 8px;
+    font-size: 12px;
   }
   .event-context {
     display: block;
@@ -1695,7 +1695,7 @@ legend small {
     margin-bottom: 25px;
   }
   .context-intro .mini-label {
-    font-size: 8px;
+    font-size: 12px;
     max-width: 110px;
   }
   .context-intro p {
@@ -1717,14 +1717,14 @@ legend small {
     font-size: 29px;
   }
   .event-stats dd {
-    font-size: 8px;
+    font-size: 12px;
     margin-top: 5px;
     line-height: 1.7;
   }
   .source-note {
     margin-top: 20px;
     padding: 0;
-    font-size: 8px;
+    font-size: 12px;
   }
   .section {
     padding-top: 72px;
@@ -1734,7 +1734,7 @@ legend small {
     line-height: 1.1;
   }
   .eyebrow {
-    font-size: 11px;
+    font-size: 12px;
     margin-bottom: 16px;
   }
   .section-head {
@@ -1767,14 +1767,14 @@ legend small {
     font-size: 28px;
   }
   .experience-copy p {
-    font-size: 11px;
+    font-size: 12px;
   }
   .experience-foot {
     justify-content: start;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px 15px;
-    font-size: 9px;
+    font-size: 12px;
     padding-top: 20px;
   }
   .experience-foot i {
@@ -1803,7 +1803,7 @@ legend small {
     margin: 23px 0 27px;
   }
   .audience-tabs button {
-    font-size: 11px;
+    font-size: 12px;
   }
   .audience-panel {
     padding: 28px;
@@ -1860,7 +1860,7 @@ legend small {
     aspect-ratio: 0.8;
   }
   .founder-photos figcaption {
-    font-size: 11px;
+    font-size: 12px;
   }
   .journey-grid {
     grid-template-columns: 1fr;
@@ -1880,7 +1880,7 @@ legend small {
     font-size: 13px;
   }
   .journey-card .clean-list li {
-    font-size: 11px;
+    font-size: 12px;
   }
   .packages {
     margin-top: 65px;
@@ -1908,7 +1908,7 @@ legend small {
     margin-bottom: 20px;
   }
   .package-card .clean-list li {
-    font-size: 11px;
+    font-size: 12px;
   }
   .package-card .button {
     align-self: stretch;
@@ -1934,10 +1934,10 @@ legend small {
     margin-top: 13px;
   }
   .comparison summary {
-    font-size: 11px;
+    font-size: 12px;
   }
   .comparison > p {
-    font-size: 9px;
+    font-size: 12px;
   }
   .briefing-layout {
     display: flex;
@@ -1957,16 +1957,16 @@ legend small {
     margin-bottom: 30px;
   }
   .step-progress > span {
-    font-size: 9px;
+    font-size: 12px;
   }
   legend {
     font-size: 13px;
   }
   legend small {
-    font-size: 9px;
+    font-size: 12px;
   }
   .option > span {
-    font-size: 11px;
+    font-size: 12px;
     padding: 13px;
   }
   .form-actions .button {
@@ -1991,7 +1991,7 @@ legend small {
     padding: 12px 0;
   }
   #brief-summary dd {
-    font-size: 10px;
+    font-size: 12px;
   }
   .preview-contact {
     padding-top: 16px;
@@ -2035,7 +2035,7 @@ legend small {
     font-size: 12px;
   }
   .closing-date {
-    font-size: 9px;
+    font-size: 12px;
   }
   .site-footer {
     padding-top: 37px;
@@ -2057,14 +2057,14 @@ legend small {
   .footer-main nav > a,
   .footer-contact > a {
     padding: 8px 0;
-    font-size: 10px;
+    font-size: 12px;
   }
   .footer-main h3 {
-    font-size: 10px;
+    font-size: 12px;
   }
   .footer-bottom {
     flex-wrap: wrap;
-    font-size: 8px;
+    font-size: 12px;
     gap: 18px 25px;
   }
   .footer-bottom > span {
@@ -2091,14 +2091,14 @@ legend small {
   display: block;
   color: var(--blue);
   margin-top: 7px;
-  font-size: 9px;
+  font-size: 14px;
   font-variant-numeric: tabular-nums;
 }
 .clean-list li {
   font-size: 12px;
 }
 .package-card .clean-list li {
-  font-size: 11px;
+  font-size: 12px;
 }
 .faq-list details p {
   font-size: 13px;
