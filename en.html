@@ -13,8 +13,8 @@
   --bg:#0E0E0F; --bg2:#151517; --bg3:#1C1C1F;
   --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
   --text:#F4F1EC; --muted:#9A968F; --dim:#6A6762;
-  --orange:#E8601C; --orange2:#FF8A3D; --orange-soft:rgba(232,96,28,.14);
-  --wa:#25D366;
+  --orange:#EA680D; --orange2:#F48A3B; --orange-soft:rgba(234,104,13,.14);
+  --blue:#0624A6; --wa:#25D366;
   --radius:18px;
   --max:1240px;
   --sans:"Inter Tight",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
@@ -39,12 +39,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 h1,h2,h3{font-weight:700;letter-spacing:-.035em;line-height:1.02}
 h2{font-size:clamp(38px,5.2vw,72px)}
 .accent{color:var(--orange)}
+.hero h1 .accent,.tour h2 .accent,.final h2 .accent{color:var(--text)}
 .lead{color:var(--muted);font-size:clamp(17px,1.4vw,20px);max-width:56ch}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 26px;border-radius:999px;font-weight:600;font-size:16px;transition:transform .25s,background .25s,box-shadow .25s,border-color .25s;white-space:nowrap}
-.btn-primary{background:var(--orange);color:#fff;box-shadow:0 10px 40px -10px rgba(232,96,28,.7)}
-.btn-primary:hover{background:#F26B26;transform:translateY(-2px);box-shadow:0 18px 50px -12px rgba(232,96,28,.85)}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 10px 40px -10px rgba(234,104,13,.7)}
+.btn-primary:hover{background:#F47B23;transform:translateY(-2px);box-shadow:0 18px 50px -12px rgba(234,104,13,.85)}
 .btn-ghost{border:1px solid var(--line2);color:var(--text)}
 .btn-ghost:hover{border-color:var(--text);transform:translateY(-2px)}
 .btn .arr{transition:transform .25s}
@@ -54,6 +55,14 @@ h2{font-size:clamp(38px,5.2vw,72px)}
 /* logo */
 .logo{display:inline-flex;align-items:center;font-weight:800;font-size:28px;letter-spacing:-.04em;line-height:1}
 .logo .chev{width:.55em;height:.72em;margin:0 .02em 0 .04em;color:var(--orange);transform:translateY(.02em)}
+
+/* Official brand assets */
+.logo img{width:106px;height:auto}
+.f-brand .logo img{width:132px}
+.f-mark{background:none;margin:20px 0 0;padding:0 16px}
+.f-mark img{width:min(70vw,720px);height:auto;opacity:.065;filter:grayscale(1)}
+.lang a.on{box-shadow:inset 0 -2px var(--blue)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--orange2);outline-offset:5px}
 
 /* header */
 header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s,backdrop-filter .3s;border-bottom:1px solid transparent}
@@ -70,7 +79,7 @@ header.scrolled{background:rgba(14,14,15,.72);backdrop-filter:blur(14px);-webkit
 
 /* hero */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:110px 0 60px}
-.hero::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(60% 60% at 75% 45%,rgba(232,96,28,.14),transparent 70%);pointer-events:none}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(60% 60% at 75% 45%,rgba(255,255,255,.025),transparent 70%);pointer-events:none}
 .hero-bg{position:absolute;inset:-6% 0 0;z-index:0;overflow:hidden;will-change:transform}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 62%;filter:grayscale(.6) contrast(1.08) brightness(.75);transform:scale(1.1);animation:kb 26s cubic-bezier(.2,.6,.3,1) forwards}
 @keyframes kb{to{transform:scale(1)}}
@@ -127,7 +136,7 @@ section{position:relative}
 
 /* phases */
 .phases{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
-.phases .progress{position:absolute;top:-1px;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--orange),var(--orange2));transition:width 1.8s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 18px rgba(232,96,28,.8)}
+.phases .progress{position:absolute;top:-1px;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--orange),var(--orange2));transition:width 1.8s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 18px rgba(234,104,13,.8)}
 .phases.in .progress{width:100%}
 .phase{padding:44px 40px 10px 0;position:relative}
 .phase+.phase{padding-left:40px;border-left:1px solid var(--line)}
@@ -144,7 +153,7 @@ section{position:relative}
 .f-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center}
 .people{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .person{padding:10px 10px 18px;border:1px solid var(--line);border-radius:22px;background:var(--bg);transition:border-color .3s,transform .4s cubic-bezier(.2,.8,.2,1)}
-.person:hover{border-color:rgba(232,96,28,.5);transform:translateY(-6px)}
+.person:hover{border-color:rgba(234,104,13,.5);transform:translateY(-6px)}
 .person .photo{position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;margin-bottom:16px}
 .person .photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(.35) contrast(1.04);transition:filter .5s,transform .8s cubic-bezier(.2,.8,.2,1)}
 .person:hover .photo img{filter:none;transform:scale(1.04)}
@@ -168,11 +177,11 @@ section{position:relative}
 .pk .for{color:var(--muted);font-size:16px;min-height:3em}
 .pk ul{list-style:none;margin:26px 0 30px;display:grid;gap:12px;font-size:15.5px;flex:1}
 .pk li{display:flex;gap:12px;align-items:flex-start}
-.pk li::before{content:"";flex:none;width:16px;height:16px;margin-top:4px;border-radius:50%;background:var(--orange-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%23FF8A3D' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.pk li::before{content:"";flex:none;width:16px;height:16px;margin-top:4px;border-radius:50%;background:var(--orange-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%23EA680D' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
 .pk li.plus{color:var(--muted)}
 .pk .price{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:14px}
 .pk .btn{justify-content:center;width:100%}
-.pk.featured{border-color:rgba(232,96,28,.55);background:radial-gradient(120% 70% at 50% 0%,rgba(232,96,28,.16),transparent 60%),var(--bg2)}
+.pk.featured{border-color:rgba(234,104,13,.55);background:linear-gradient(180deg,#242424,var(--bg2))}
 .pk.featured::before{content:"Recomendado";position:absolute;top:-12px;left:30px;padding:5px 12px;border-radius:999px;background:var(--orange);color:#fff;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
 .pk-dots{display:none;justify-content:center;gap:6px;margin-top:18px}
 .pk-dots i{width:6px;height:6px;border-radius:3px;background:var(--line2);transition:width .3s,background .3s}
@@ -191,7 +200,7 @@ section{position:relative}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
 .chip{padding:11px 18px;border:1px solid var(--line2);border-radius:999px;font-size:15px;color:var(--muted);transition:all .2s;user-select:none}
 .chip:hover{border-color:var(--text);color:var(--text)}
-.chip[aria-pressed="true"]{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:0 8px 24px -10px rgba(232,96,28,.9)}
+.chip[aria-pressed="true"]{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:0 8px 24px -10px rgba(234,104,13,.9)}
 .fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .field input{width:100%;height:54px;padding:0 18px;border-radius:14px;border:1px solid var(--line2);background:var(--bg);color:var(--text);font:inherit;font-size:16px;transition:border-color .2s,box-shadow .2s}
 .field input::placeholder{color:var(--dim)}
@@ -204,7 +213,7 @@ section{position:relative}
 /* phone */
 .phone-col{position:sticky;top:100px}
 .phone{position:relative;width:100%;max-width:360px;margin:0 auto;border-radius:44px;padding:12px;background:linear-gradient(160deg,#2A2A2E,#111113);box-shadow:0 50px 100px -30px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08),inset 0 0 0 1px rgba(255,255,255,.04)}
-.phone::before{content:"";position:absolute;inset:-60px;z-index:-1;background:radial-gradient(closest-side,rgba(232,96,28,.22),transparent);filter:blur(10px)}
+.phone::before{content:"";position:absolute;inset:-60px;z-index:-1;background:radial-gradient(closest-side,rgba(255,255,255,.045),transparent);filter:blur(10px)}
 .screen{border-radius:34px;overflow:hidden;background:#0B141A;height:620px;display:flex;flex-direction:column}
 .wa-top{display:flex;align-items:center;gap:12px;padding:44px 16px 12px;background:#1F2C34}
 .wa-top .av{width:38px;height:38px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-weight:800;color:#fff;font-size:15px}
@@ -219,7 +228,7 @@ section{position:relative}
 .ph{display:inline-block;min-width:44px;height:.95em;vertical-align:-.1em;border-radius:4px;background:rgba(255,255,255,.14);animation:pulse 1.6s ease-in-out infinite}
 @keyframes pulse{50%{opacity:.45}}
 .hl{border-radius:4px;transition:background .8s}
-.hl.flash{background:rgba(255,138,61,.45)}
+.hl.flash{background:rgba(244,138,59,.45)}
 .typing{align-self:flex-start;display:none;gap:4px;padding:12px 14px;background:#202C33;border-radius:4px 12px 12px 12px}
 .typing.show{display:flex}
 .typing i{width:6px;height:6px;border-radius:50%;background:#8696A0;animation:dot 1.2s infinite}
@@ -231,7 +240,7 @@ section{position:relative}
 .wa-input svg{width:18px;height:18px;color:#fff}
 
 /* scroll progress */
-.sprog{position:fixed;top:0;left:0;right:0;height:2px;z-index:70;background:linear-gradient(90deg,var(--orange),var(--orange2));transform-origin:0 50%;transform:scaleX(0);box-shadow:0 0 12px rgba(232,96,28,.8)}
+.sprog{position:fixed;top:0;left:0;right:0;height:2px;z-index:70;background:linear-gradient(90deg,var(--orange),var(--orange2));transform-origin:0 50%;transform:scaleX(0);box-shadow:0 0 12px rgba(234,104,13,.8)}
 
 /* tour (galeria horizontal fixada no scroll) */
 .tour{position:relative}
@@ -279,7 +288,7 @@ details p{color:var(--muted);padding:0 50px 26px 0;max-width:62ch}
 
 /* final */
 .final{padding:170px 0 120px;text-align:center;overflow:hidden}
-.final::before{content:"";position:absolute;z-index:1;left:50%;bottom:-40%;width:1100px;height:700px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(232,96,28,.28),transparent);pointer-events:none}
+.final::before{content:"";position:absolute;z-index:1;left:50%;bottom:-40%;width:1100px;height:700px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(255,255,255,.035),transparent);pointer-events:none}
 .final h2{font-size:clamp(46px,8vw,124px);max-width:12ch;margin:26px auto 44px}
 .final .ctas{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
 footer{position:relative;border-top:1px solid var(--line);background:var(--bg2);color:var(--muted);font-size:15px;overflow:hidden}
@@ -304,7 +313,7 @@ footer{position:relative;border-top:1px solid var(--line);background:var(--bg2);
 .f-contact .loc{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--dim)}
 .f-mark{display:flex;justify-content:center;align-items:center;font-weight:800;font-size:clamp(120px,27vw,400px);letter-spacing:-.07em;line-height:.78;margin-bottom:-.08em;user-select:none;pointer-events:none;
   background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,0) 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.f-mark svg{width:.5em;height:.66em;margin:0 .01em;color:rgba(232,96,28,.16)}
+.f-mark svg{width:.5em;height:.66em;margin:0 .01em;color:rgba(234,104,13,.16)}
 .f-bottom{position:relative;display:flex;justify-content:space-between;align-items:center;gap:20px 40px;flex-wrap:wrap;padding:24px 0 30px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
 .f-bottom .legal{max-width:62ch}
 .f-bottom a:hover{color:var(--text)}
@@ -316,6 +325,8 @@ footer{position:relative;border-top:1px solid var(--line);background:var(--bg2);
 .fab svg{width:30px;height:30px;color:#fff}
 .fab::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--wa);animation:ring 2.4s infinite}
 @keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.6);opacity:0}}
+
+ .f-mark{background:none}
 
 /* responsive */
 @media (max-width:1020px){
@@ -401,7 +412,7 @@ footer{position:relative;border-top:1px solid var(--line);background:var(--bg2);
 <div class="sprog" id="sprog" aria-hidden="true"></div>
 <header id="top">
   <div class="wrap nav">
-    <a href="#" class="logo" aria-label="Next">Ne<svg class="chev"><use href="#chev"/></svg>t</a>
+    <a href="#" class="logo" aria-label="Next"><img src="img/logo-next-orange.png" alt="Next" width="132" height="75"></a>
     <ul>
       <li><a href="#tour">The experience</a></li>
       <li><a href="#quem">About us</a></li>
@@ -676,7 +687,7 @@ footer{position:relative;border-top:1px solid var(--line);background:var(--bg2);
         </div>
         <div class="send-row">
           <a id="send" class="btn btn-wa" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Send via WhatsApp</a>
-          <p class="note">You can review the message in WhatsApp before sending. We reply during business hours.</p>
+          <p class="note">You can review the message in WhatsApp before sending. Your details stay with Next, only to talk about the mission.</p>
         </div>
       </div>
       <div class="phone-col rv d2">
@@ -745,7 +756,7 @@ footer{position:relative;border-top:1px solid var(--line);background:var(--bg2);
   <div class="wrap">
     <div class="f-top">
       <div class="f-brand">
-        <a href="#" class="logo" aria-label="Next">Ne<svg class="chev"><use href="#chev"/></svg>t</a>
+        <a href="#" class="logo" aria-label="Next"><img src="img/logo-next-orange.png" alt="Next" width="132" height="75"></a>
         <p class="f-tag">Strategy. Connection. Results.</p>
         <p class="f-desc">Business and institutional missions to PDAC in Toronto, led by Brazilians who have lived in Canada for over 9 years.</p>
         <div class="f-next">
@@ -783,7 +794,7 @@ footer{position:relative;border-top:1px solid var(--line);background:var(--bg2);
       </div>
     </div>
   </div>
-  <div class="f-mark" aria-hidden="true">Ne<svg><use href="#chev"/></svg>t</div>
+  <div class="f-mark" aria-hidden="true"><img src="img/logo-next-orange.png" alt="" width="720" height="406"></div>
   <div class="wrap">
     <div class="f-bottom">
       <span>© 2026 Next · nextmining.com.br</span>
@@ -796,10 +807,10 @@ footer{position:relative;border-top:1px solid var(--line);background:var(--bg2);
 <a class="fab js-wa" id="fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg><use href="#wa"/></svg></a>
 
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="config.js"></script>
 <script>
-// ===== Config =====
-// TODO: número oficial da Next (só dígitos, com DDI). Vazio = o WhatsApp pede para escolher o contato.
-const WHATSAPP_NUMBER = '';
+// ===== Config ===== (número do WhatsApp e endereço do CRM ficam em config.js)
+const {WHATSAPP_NUMBER = '', CRM_URL = ''} = window.NEXT_CONFIG || {};
 const EVENT_START = new Date('2027-03-07T09:00:00-05:00');
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -864,6 +875,36 @@ const bBar = document.getElementById('b-bar'), bCount = document.getElementById(
 const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let lastChanged = null, typingTimer;
 
+// ===== Lead → CRM =====
+// código que vai na mensagem do WhatsApp e liga a conversa ao card do painel; o mesmo durante a visita
+const LEAD_REF = (() => {
+  const novo = () => 'NX-' + Array.from(crypto.getRandomValues(new Uint8Array(4)), b => '23456789ABCDEFGHJKLMNPQRSTUVWXYZ'[b % 32]).join('');
+  try { return sessionStorage.nxRef || (sessionStorage.nxRef = novo()); } catch { return novo(); }
+})();
+// de onde a pessoa veio (primeira página da visita): utm_* ou site de referência
+const ORIGEM = (() => {
+  const q = new URLSearchParams(location.search);
+  const utm = ['utm_source', 'utm_medium', 'utm_campaign'].map(k => q.get(k)).filter(Boolean).join(' / ');
+  let ref = '';
+  try { ref = document.referrer && new URL(document.referrer).host !== location.host ? new URL(document.referrer).host : ''; } catch {}
+  const atual = utm || ref || 'direto';
+  try { return sessionStorage.nxOrigem || (sessionStorage.nxOrigem = atual); } catch { return atual; }
+})();
+function saveLead(){
+  if (!CRM_URL) return;
+  const label = (q, v) => document.querySelector(`.chips[data-q="${q}"] .chip[data-v="${v}"]`)?.textContent.trim() || '';
+  const lead = {
+    action: 'lead', ref: LEAD_REF, nome: state.nome.trim(), empresa: state.empresa.trim(),
+    perfil: state.perfil ? label('perfil', state.perfil) : '', objetivos: state.obj.join(', '),
+    pessoas: state.pessoas || '', pacote: state.pacote || '',
+    idioma: document.documentElement.lang, origem: ORIGEM, pagina: location.href.split('#')[0]
+  };
+  // text/plain evita o preflight de CORS; sendBeacon sobrevive à troca de aba para o WhatsApp
+  const body = new Blob([JSON.stringify(lead)], {type:'text/plain;charset=utf-8'});
+  if (!(navigator.sendBeacon && navigator.sendBeacon(CRM_URL, body)))
+    fetch(CRM_URL, {method:'POST', body, mode:'no-cors', keepalive:true}).catch(() => {});
+}
+
 function listPt(a){ return a.length < 2 ? a.join('') : a.slice(0,-1).join(', ') + ' and ' + a.at(-1); }
 function message(html){
   const f = (key, val) => val ? (html ? `<span class="hl" data-k="${key}">${esc(val)}</span>` : val) : (html ? '<span class="ph"></span>' : null);
@@ -877,7 +918,7 @@ function message(html){
   const p = f('pessoas', state.pessoas); if (p) det.push(`• Group: ${p}`);
   const k = f('pacote', state.pacote); if (k) det.push(`• Package: ${k}`);
   if (det.length) lines.push('', ...det);
-  lines.push('', 'Can we talk?');
+  lines.push('', 'Can we talk?', `Ref.: ${LEAD_REF}`);
   return lines.join('\n');
 }
 function render(){
@@ -922,7 +963,7 @@ document.querySelectorAll('.chips').forEach(group => {
 });
 send.addEventListener('click', e => {
   if (!state.nome.trim()){ e.preventDefault(); const n = document.getElementById('f-nome'); n.focus(); n.scrollIntoView({block:'center', behavior:'smooth'}); return; }
-  // TODO: salvar o lead (planilha/CRM) antes de abrir o WhatsApp.
+  saveLead();
 });
 document.querySelectorAll('[data-pkg]').forEach(b => b.addEventListener('click', () => {
   const group = document.querySelector('.chips[data-q="pacote"]');
@@ -1084,13 +1125,13 @@ render();
     ctx.clearRect(0, 0, W, H);
     // atmosphere
     let g = ctx.createRadialGradient(cx, cy, R*.9, cx, cy, R*1.32);
-    g.addColorStop(0, 'rgba(232,96,28,.22)'); g.addColorStop(1, 'rgba(232,96,28,0)');
+    g.addColorStop(0, 'rgba(234,104,13,.22)'); g.addColorStop(1, 'rgba(234,104,13,0)');
     ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, R*1.32, 0, 7); ctx.fill();
     // sphere body
     g = ctx.createRadialGradient(cx - R*.35, cy - R*.4, R*.1, cx, cy, R);
     g.addColorStop(0, '#232326'); g.addColorStop(1, '#0F0F10');
     ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.fill();
-    ctx.strokeStyle = 'rgba(255,138,61,.25)'; ctx.lineWidth = 1; ctx.stroke();
+    ctx.strokeStyle = 'rgba(244,138,59,.25)'; ctx.lineWidth = 1; ctx.stroke();
 
     // ocean texture
     ctx.fillStyle = 'rgba(255,255,255,.07)'; ctx.beginPath();
@@ -1110,10 +1151,10 @@ render();
       for (const p of b) ctx.rect(p[0] - ds/2, p[1] - ds/2, ds, ds);
       ctx.fill();
     });
-    ctx.fillStyle = 'rgba(232,96,28,.95)'; ctx.beginPath();
+    ctx.fillStyle = 'rgba(234,104,13,.95)'; ctx.beginPath();
     for (const p of tinted[0]) ctx.rect(p[0] - ds/2, p[1] - ds/2, ds, ds);
     ctx.fill();
-    ctx.fillStyle = 'rgba(255,138,61,.8)'; ctx.beginPath();
+    ctx.fillStyle = 'rgba(244,138,59,.8)'; ctx.beginPath();
     for (const p of tinted[1]) ctx.rect(p[0] - ds/2, p[1] - ds/2, ds, ds);
     ctx.fill();
 
@@ -1146,9 +1187,9 @@ render();
       const p = proj(v); if (p[2] <= .05) return;
       if (i === 1 && prog < 1) return;
       const ph = ((t + i * .8) % 1.8) / 1.8;
-      ctx.strokeStyle = `rgba(255,138,61,${(1 - ph) * .9})`; ctx.lineWidth = 1.5;
+      ctx.strokeStyle = `rgba(244,138,59,${(1 - ph) * .9})`; ctx.lineWidth = 1.5;
       ctx.beginPath(); ctx.arc(p[0], p[1], 4 + ph * 18, 0, 7); ctx.stroke();
-      ctx.fillStyle = '#FF8A3D'; ctx.beginPath(); ctx.arc(p[0], p[1], 4, 0, 7); ctx.fill();
+      ctx.fillStyle = '#F48A3B'; ctx.beginPath(); ctx.arc(p[0], p[1], 4, 0, 7); ctx.fill();
       ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(p[0], p[1], 1.6, 0, 7); ctx.fill();
       ctx.font = '500 11px "JetBrains Mono", monospace'; ctx.fillStyle = 'rgba(244,241,236,.9)';
       ctx.textAlign = i ? 'right' : 'left';
@@ -1166,9 +1207,9 @@ render();
         if (p[2] <= .02) return;
         const e = Math.min(1, (t - c.at) / .7);
         const ex = p[0] + (c.x - p[0]) * e, ey = p[1] + (c.y - p[1]) * e;
-        ctx.strokeStyle = `rgba(255,138,61,${.85 * a})`;
+        ctx.strokeStyle = `rgba(244,138,59,${.85 * a})`;
         ctx.beginPath(); ctx.moveTo(p[0], p[1]); ctx.lineTo(ex, ey); ctx.stroke();
-        ctx.fillStyle = `rgba(255,138,61,${a})`;
+        ctx.fillStyle = `rgba(244,138,59,${a})`;
         ctx.beginPath(); ctx.arc(p[0], p[1], 2.6, 0, 7); ctx.fill();
         ctx.beginPath(); ctx.arc(ex, ey, 2, 0, 7); ctx.fill();
       });
