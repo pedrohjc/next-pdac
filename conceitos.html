@@ -1,3 +1,253 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Next · Três caminhos</title><meta name="robots" content="noindex"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"><style>
-*{box-sizing:border-box}body{margin:0;background:#f4f2ec;color:#172329;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.wrap{max-width:1480px;margin:auto;padding:0 48px}header{height:95px;border-bottom:1px solid #d8d9d2;display:flex;align-items:center;justify-content:space-between}header img{width:90px}header span{font-size:11px;color:#65706b}main{padding:60px 0 65px}.label{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:#0624a6}h1{font:400 clamp(52px,5.4vw,80px)/1 'Instrument Serif',serif;letter-spacing:-.03em;margin:18px 0}h1 em{color:#0624a6}main>p{font-size:14px;color:#65706b;line-height:1.8;margin-bottom:45px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.card{display:block;min-width:0}.preview{aspect-ratio:1.3;overflow:hidden;border:1px solid #d8d9d2;background:#dedfd9;position:relative}.preview img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .5s}.card:hover .preview img{transform:scale(1.025)}.preview span{position:absolute;bottom:16px;right:16px;border-radius:50%;width:40px;height:40px;display:grid;place-items:center;background:#f4f2ec;color:#0624a6;font-size:22px}.card h2{font:400 35px 'Instrument Serif',serif;margin:21px 0 8px;display:flex;align-items:center;gap:12px}.card h2 small{font:500 8px 'DM Sans',sans-serif;padding:5px 7px;color:#0624a6;border:1px solid #0624a633;letter-spacing:.07em;text-transform:uppercase}.card p{font-size:12px;line-height:1.8;color:#65706b;margin:0;max-width:320px}.card .open{display:inline-block;margin-top:18px;border-bottom:1px solid #172329;font-size:12px;padding-bottom:6px}footer{font-size:10px;padding:20px 0 30px;border-top:1px solid #d8d9d2;color:#65706b}a:focus-visible{outline:2px solid #0624a6;outline-offset:6px}@media(max-width:800px){.wrap{padding:0 24px}.grid{grid-template-columns:1fr;gap:44px}header{height:80px}main{padding-top:40px}main>p{font-size:13px}.preview{aspect-ratio:1.4}.card p{max-width:none}h1{font-size:59px}}
-</style></head><body><div class="wrap"><header><img src="img/logo-next-blue.png" alt="Next" width="90" height="51"><span>PDAC 2027 · Estudos de direção visual</span></header><main><div class="label">Next · A mesma missão, três perspectivas</div><h1>Qual é o seu<br><em>próximo caminho?</em></h1><p>Explore as propostas completas. Todas levam à mesma conversa com a Next.</p><div class="grid"><a class="card" href="index.html"><div class="preview"><img src="img/concept-original.jpg" alt="Prévia da versão original com globo e cartões ao redor" width="1000" height="760"><span aria-hidden="true">↗</span></div><h2>Conexão global <small>Atual</small></h2><p>Globo interativo, fotografia ao fundo e uma missão construída ao vivo.</p><span class="open">Abrir a versão atual ↗</span></a><a class="card" href="editorial.html"><div class="preview"><img src="img/concept-editorial.jpg" alt="Prévia da versão editorial clara com tipografia serifada e foto de Toronto" width="1000" height="760"><span aria-hidden="true">↗</span></div><h2>O próximo encontro <small>Nova</small></h2><p>Uma leitura editorial, com espaço, fotografia e uma relação mais próxima com quem vai acompanhar a viagem.</p><span class="open">Explorar a proposta ↗</span></a><a class="card" href="atlas.html"><div class="preview"><img src="img/concept-atlas.jpg" alt="Prévia da versão Destino Toronto com letras grandes e cartão de embarque" width="1000" height="760"><span aria-hidden="true">↗</span></div><h2>Destino Toronto <small>Nova</small></h2><p>Uma chegada cinematográfica, agenda interativa e um convite para fazer parte da missão.</p><span class="open">Explorar a proposta ↗</span></a></div></main><footer>Next · Ramon Dias & Flávia Saleme · Brasil → Toronto</footer></div></body></html>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Next · Três caminhos</title>
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #f4f2ec;
+        color: #172329;
+        font-family: "DM Sans", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: 1480px;
+        margin: auto;
+        padding: 0 48px;
+      }
+      header {
+        height: 95px;
+        border-bottom: 1px solid #d8d9d2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      header img {
+        width: 90px;
+      }
+      header span {
+        font-size: 11px;
+        color: #65706b;
+      }
+      main {
+        padding: 60px 0 65px;
+      }
+      .label {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.13em;
+        color: #0624a6;
+      }
+      h1 {
+        font:
+          400 clamp(52px, 5.4vw, 80px)/1 "Instrument Serif",
+          serif;
+        letter-spacing: -0.03em;
+        margin: 18px 0;
+      }
+      h1 em {
+        color: #0624a6;
+      }
+      main > p {
+        font-size: 14px;
+        color: #65706b;
+        line-height: 1.8;
+        margin-bottom: 45px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .card {
+        display: block;
+        min-width: 0;
+      }
+      .preview {
+        aspect-ratio: 1.3;
+        overflow: hidden;
+        border: 1px solid #d8d9d2;
+        background: #dedfd9;
+        position: relative;
+      }
+      .preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+        transition: transform 0.5s;
+      }
+      .card:hover .preview img {
+        transform: scale(1.025);
+      }
+      .preview span {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        background: #f4f2ec;
+        color: #0624a6;
+        font-size: 22px;
+      }
+      .card h2 {
+        font:
+          400 35px "Instrument Serif",
+          serif;
+        margin: 21px 0 8px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .card h2 small {
+        font:
+          500 8px "DM Sans",
+          sans-serif;
+        padding: 5px 7px;
+        color: #0624a6;
+        border: 1px solid #0624a633;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+      .card p {
+        font-size: 12px;
+        line-height: 1.8;
+        color: #65706b;
+        margin: 0;
+        max-width: 320px;
+      }
+      .card .open {
+        display: inline-block;
+        margin-top: 18px;
+        border-bottom: 1px solid #172329;
+        font-size: 12px;
+        padding-bottom: 6px;
+      }
+      footer {
+        font-size: 10px;
+        padding: 20px 0 30px;
+        border-top: 1px solid #d8d9d2;
+        color: #65706b;
+      }
+      a:focus-visible {
+        outline: 2px solid #0624a6;
+        outline-offset: 6px;
+      }
+      @media (max-width: 800px) {
+        .wrap {
+          padding: 0 24px;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+          gap: 44px;
+        }
+        header {
+          height: 80px;
+        }
+        main {
+          padding-top: 40px;
+        }
+        main > p {
+          font-size: 13px;
+        }
+        .preview {
+          aspect-ratio: 1.4;
+        }
+        .card p {
+          max-width: none;
+        }
+        h1 {
+          font-size: 59px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <img
+          src="img/logo-next-blue.png"
+          alt="Next"
+          width="90"
+          height="51"
+        /><span>PDAC 2027 · Estudos de direção visual</span>
+      </header>
+      <main>
+        <div class="label">Next · A mesma missão, três perspectivas</div>
+        <h1>Qual é o seu<br /><em>próximo caminho?</em></h1>
+        <p>
+          Explore as propostas completas. Todas levam à mesma conversa com a
+          Next.
+        </p>
+        <div class="grid">
+          <a class="card" href="index.html"
+            ><div class="preview">
+              <img
+                src="img/concept-original.jpg"
+                alt="Prévia da versão original com globo e cartões ao redor"
+                width="1000"
+                height="760"
+              /><span aria-hidden="true">↗</span>
+            </div>
+            <h2>Conexão global <small>Atual</small></h2>
+            <p>
+              Globo interativo, fotografia ao fundo e uma missão construída ao
+              vivo.
+            </p>
+            <span class="open">Abrir a versão atual ↗</span></a
+          ><a class="card" href="editorial.html"
+            ><div class="preview">
+              <img
+                src="img/concept-editorial.jpg"
+                alt="Prévia da versão editorial clara com tipografia serifada e foto de Toronto"
+                width="1000"
+                height="760"
+              /><span aria-hidden="true">↗</span>
+            </div>
+            <h2>O próximo encontro <small>Nova</small></h2>
+            <p>
+              Uma leitura editorial, com espaço, fotografia e uma relação mais
+              próxima com quem vai acompanhar a viagem.
+            </p>
+            <span class="open">Explorar a proposta ↗</span></a
+          ><a class="card" href="atlas.html"
+            ><div class="preview">
+              <img
+                src="img/concept-atlas.jpg"
+                alt="Prévia da versão Destino Toronto com letras grandes e cartão de embarque"
+                width="1000"
+                height="760"
+              /><span aria-hidden="true">↗</span>
+            </div>
+            <h2>Destino Toronto <small>Nova</small></h2>
+            <p>
+              Uma chegada cinematográfica, agenda interativa e um convite para
+              fazer parte da missão.
+            </p>
+            <span class="open">Explorar a proposta ↗</span></a
+          >
+        </div>
+      </main>
+      <footer>Next · Ramon Dias & Flávia Saleme · Brasil → Toronto</footer>
+    </div>
+  </body>
+</html>

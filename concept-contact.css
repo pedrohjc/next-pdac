@@ -1,28 +1,215 @@
-.mission-dialog{--modal-bg:#f4f2ec;--modal-text:#172329;--modal-muted:#65706b;--modal-border:#d2d6d0;border:0;border-radius:8px;padding:0;background:var(--modal-bg);color:var(--modal-text);width:min(580px,calc(100% - 32px));max-height:calc(100svh - 40px);font:400 15px/1.5 'DM Sans',sans-serif;box-shadow:0 40px 140px #0005;overflow:auto}
-.mission-dialog::backdrop{background:#101816a6;backdrop-filter:blur(9px)}
-.dark-concept .mission-dialog{--modal-bg:#1d201e;--modal-text:#f2f0e8;--modal-muted:#a4aaa3;--modal-border:#ffffff26}
-.mission-dialog .modal-head{padding:25px 30px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--modal-border)}
-.mission-dialog .modal-head span{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--modal-muted)}
-.mission-dialog .modal-close{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--modal-border);background:none;color:var(--modal-text);border-radius:50%;font-size:25px;line-height:1}
-.mission-dialog .modal-body{padding:28px 30px 30px}
-.mission-dialog h2{font:500 31px/1.1 'DM Sans',sans-serif;letter-spacing:-.04em;margin:0 0 12px;text-transform:none}
-.mission-dialog p{font-size:13px;color:var(--modal-muted);line-height:1.7;margin:0 0 25px;max-width:none}
-.mission-dialog .modal-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 24px;border:0;padding:0}
-.mission-dialog legend,.mission-dialog label{font-size:11px;font-weight:600;display:block;margin-bottom:10px}
-.mission-dialog legend{padding:0 0 12px}
-.mission-dialog .modal-choice{font:400 13px/1.4 'DM Sans',sans-serif;text-align:left;padding:15px;border:1px solid var(--modal-border);border-radius:4px;color:var(--modal-text);background:transparent;min-height:53px}
-.mission-dialog .modal-choice[aria-pressed="true"]{background:var(--modal-text);color:var(--modal-bg);border-color:var(--modal-text)}
-.mission-dialog select,.mission-dialog input{display:block;width:100%;border:1px solid var(--modal-border);border-radius:4px;background:var(--modal-bg);color:var(--modal-text);padding:14px;font:400 16px 'DM Sans',sans-serif;margin-top:8px;min-height:49px}
-.mission-dialog .modal-form-grid{display:grid;gap:13px;margin:24px 0}
-.mission-dialog .modal-form-grid label{margin:0}
-.mission-dialog .modal-next,.mission-dialog .modal-send{width:100%;min-height:52px;background:#ea680d;color:#172329;border:1px solid #ea680d;border-radius:4px;font:600 13px 'DM Sans',sans-serif;display:flex;align-items:center;justify-content:space-between;padding:15px 20px;text-decoration:none;cursor:pointer}
-.mission-dialog .modal-next:disabled{opacity:.45;cursor:default}
-.mission-dialog .modal-next:hover:not(:disabled),.mission-dialog .modal-send:hover{background:#f57b27}
-.mission-dialog .modal-summary{font-size:12px;padding:14px 16px;border-left:3px solid #0624a6;background:#7b8dce12;margin:20px 0;color:var(--modal-text);line-height:1.7}
-.mission-dialog .modal-summary strong{display:block;font-weight:600;margin-bottom:3px}
-.mission-dialog .modal-back{font:400 12px 'DM Sans',sans-serif;color:var(--modal-muted);background:none;border:0;padding:10px 0 18px}
-.mission-dialog .modal-note{font-size:10px;line-height:1.7;margin:14px 0 0;color:var(--modal-muted)}
-.mission-dialog :focus-visible{outline:2px solid #6486ff;outline-offset:3px}
-.mission-dialog [hidden]{display:none!important}
-body.modal-open{overflow:hidden}
-@media(max-width:600px){.mission-dialog .modal-body{padding:25px 22px}.mission-dialog .modal-head{padding:16px 22px}.mission-dialog h2{font-size:28px}.mission-dialog .modal-choice{padding:12px;font-size:12px}.mission-dialog .modal-options{gap:8px}.mission-dialog{max-height:calc(100svh - 24px)}}
+.mission-dialog {
+  --modal-bg: #f4f2ec;
+  --modal-text: #172329;
+  --modal-muted: #65706b;
+  --modal-border: #d2d6d0;
+  border: 0;
+  border-radius: 8px;
+  padding: 0;
+  background: var(--modal-bg);
+  color: var(--modal-text);
+  width: min(580px, calc(100% - 32px));
+  max-height: calc(100svh - 40px);
+  font:
+    400 15px/1.5 "DM Sans",
+    sans-serif;
+  box-shadow: 0 40px 140px #0005;
+  overflow: auto;
+}
+.mission-dialog::backdrop {
+  background: #101816a6;
+  backdrop-filter: blur(9px);
+}
+.dark-concept .mission-dialog {
+  --modal-bg: #1d201e;
+  --modal-text: #f2f0e8;
+  --modal-muted: #a4aaa3;
+  --modal-border: #ffffff26;
+}
+.mission-dialog .modal-head {
+  padding: 25px 30px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--modal-border);
+}
+.mission-dialog .modal-head span {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--modal-muted);
+}
+.mission-dialog .modal-close {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--modal-border);
+  background: none;
+  color: var(--modal-text);
+  border-radius: 50%;
+  font-size: 25px;
+  line-height: 1;
+}
+.mission-dialog .modal-body {
+  padding: 28px 30px 30px;
+}
+.mission-dialog h2 {
+  font:
+    500 31px/1.1 "DM Sans",
+    sans-serif;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+  text-transform: none;
+}
+.mission-dialog p {
+  font-size: 13px;
+  color: var(--modal-muted);
+  line-height: 1.7;
+  margin: 0 0 25px;
+  max-width: none;
+}
+.mission-dialog .modal-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 0 0 24px;
+  border: 0;
+  padding: 0;
+}
+.mission-dialog legend,
+.mission-dialog label {
+  font-size: 11px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+}
+.mission-dialog legend {
+  padding: 0 0 12px;
+}
+.mission-dialog .modal-choice {
+  font:
+    400 13px/1.4 "DM Sans",
+    sans-serif;
+  text-align: left;
+  padding: 15px;
+  border: 1px solid var(--modal-border);
+  border-radius: 4px;
+  color: var(--modal-text);
+  background: transparent;
+  min-height: 53px;
+}
+.mission-dialog .modal-choice[aria-pressed="true"] {
+  background: var(--modal-text);
+  color: var(--modal-bg);
+  border-color: var(--modal-text);
+}
+.mission-dialog select,
+.mission-dialog input {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--modal-border);
+  border-radius: 4px;
+  background: var(--modal-bg);
+  color: var(--modal-text);
+  padding: 14px;
+  font:
+    400 16px "DM Sans",
+    sans-serif;
+  margin-top: 8px;
+  min-height: 49px;
+}
+.mission-dialog .modal-form-grid {
+  display: grid;
+  gap: 13px;
+  margin: 24px 0;
+}
+.mission-dialog .modal-form-grid label {
+  margin: 0;
+}
+.mission-dialog .modal-next,
+.mission-dialog .modal-send {
+  width: 100%;
+  min-height: 52px;
+  background: #ea680d;
+  color: #172329;
+  border: 1px solid #ea680d;
+  border-radius: 4px;
+  font:
+    600 13px "DM Sans",
+    sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.mission-dialog .modal-next:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.mission-dialog .modal-next:hover:not(:disabled),
+.mission-dialog .modal-send:hover {
+  background: #f57b27;
+}
+.mission-dialog .modal-summary {
+  font-size: 12px;
+  padding: 14px 16px;
+  border-left: 3px solid #0624a6;
+  background: #7b8dce12;
+  margin: 20px 0;
+  color: var(--modal-text);
+  line-height: 1.7;
+}
+.mission-dialog .modal-summary strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+.mission-dialog .modal-back {
+  font:
+    400 12px "DM Sans",
+    sans-serif;
+  color: var(--modal-muted);
+  background: none;
+  border: 0;
+  padding: 10px 0 18px;
+}
+.mission-dialog .modal-note {
+  font-size: 10px;
+  line-height: 1.7;
+  margin: 14px 0 0;
+  color: var(--modal-muted);
+}
+.mission-dialog :focus-visible {
+  outline: 2px solid #6486ff;
+  outline-offset: 3px;
+}
+.mission-dialog [hidden] {
+  display: none !important;
+}
+body.modal-open {
+  overflow: hidden;
+}
+@media (max-width: 600px) {
+  .mission-dialog .modal-body {
+    padding: 25px 22px;
+  }
+  .mission-dialog .modal-head {
+    padding: 16px 22px;
+  }
+  .mission-dialog h2 {
+    font-size: 28px;
+  }
+  .mission-dialog .modal-choice {
+    padding: 12px;
+    font-size: 12px;
+  }
+  .mission-dialog .modal-options {
+    gap: 8px;
+  }
+  .mission-dialog {
+    max-height: calc(100svh - 24px);
+  }
+}
