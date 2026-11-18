@@ -959,6 +959,204 @@
           animation: none !important;
         }
       }
+
+      .footer {
+        display: block;
+        padding: 0;
+        border-top: 1px solid var(--line);
+      }
+      .footer-main {
+        display: grid;
+        grid-template-columns: 1.4fr 0.75fr 1fr 1fr;
+        gap: 36px;
+        padding: 54px 0 45px;
+      }
+      .footer-brand img {
+        width: 112px;
+        height: auto;
+      }
+      .footer .footer-brand p {
+        font-size: 12px;
+        line-height: 1.85;
+        max-width: 245px;
+        margin: 20px 0 0;
+        color: var(--muted);
+      }
+      .footer h3 {
+        font: 400 10px var(--mono);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--electric);
+        margin: 4px 0 22px;
+      }
+      .footer-nav {
+        display: grid;
+        align-content: start;
+        gap: 15px;
+      }
+      .footer-nav h3 {
+        margin-bottom: 7px;
+      }
+      .footer-nav a {
+        font-size: 12px;
+        color: var(--muted);
+        width: fit-content;
+      }
+      .footer-contact > a {
+        font-size: 11px;
+        color: var(--muted);
+        overflow-wrap: anywhere;
+      }
+      .footer-contact strong {
+        display: block;
+        color: var(--text);
+        font-size: 15px;
+        margin: 0 0 11px;
+        font-weight: 500;
+      }
+      .footer-contact button {
+        display: block;
+        border: 0;
+        padding: 12px 0;
+        margin-top: 9px;
+        background: transparent;
+        color: var(--text);
+        font-size: 11px;
+        text-align: left;
+      }
+      .footer-contact button:hover {
+        color: var(--electric);
+      }
+      .footer-flight {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 35px;
+        padding: 24px 0;
+        border-top: 1px solid var(--line);
+      }
+      .footer-route {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .footer-route strong {
+        font: 500 34px/1 var(--display);
+        color: var(--text);
+      }
+      .footer-route span {
+        color: var(--orange);
+        font-size: 24px;
+      }
+      .footer-flight .mono {
+        color: var(--muted);
+        font-size: 9px;
+      }
+      .footer-flight .footer-dates {
+        color: var(--text);
+        text-align: right;
+        font-size: 11px;
+        line-height: 1.8;
+      }
+      .footer-dates span {
+        color: var(--muted);
+      }
+      .footer-mark {
+        padding: 15px 0 0;
+        overflow: hidden;
+      }
+      .footer-mark img {
+        width: 100%;
+        height: auto;
+        max-height: 225px;
+        object-fit: contain;
+        opacity: 0.07;
+        filter: grayscale(1);
+      }
+      .footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 25px 0 30px;
+        border-top: 1px solid var(--line);
+        font-size: 9px;
+        line-height: 1.8;
+      }
+      .footer-bottom p {
+        margin: 0;
+        max-width: 430px;
+      }
+      .footer-bottom a {
+        white-space: nowrap;
+      }
+      @media (max-width: 1050px) {
+        .footer-main {
+          grid-template-columns: 1.2fr 1fr;
+          gap: 35px 45px;
+        }
+      }
+      @media (max-width: 700px) {
+        .footer-main {
+          padding: 40px 0 30px;
+          gap: 32px 20px;
+        }
+        .footer-brand {
+          grid-column: 1 / -1;
+        }
+        .footer .footer-brand p {
+          max-width: 290px;
+          margin-top: 15px;
+        }
+        .footer-main > .footer-contact:last-child {
+          grid-column: 1 / -1;
+        }
+        .footer-nav {
+          gap: 5px;
+        }
+        .footer-nav a {
+          padding: 10px 0;
+        }
+        .footer h3 {
+          font-size: 9px;
+        }
+        .footer-contact > a {
+          display: inline-block;
+          padding: 7px 0;
+          font-size: 10px;
+        }
+        .footer-contact strong {
+          font-size: 13px;
+          margin-bottom: 5px;
+        }
+        .footer-flight {
+          gap: 20px;
+          padding: 22px 0;
+        }
+        .footer-route {
+          gap: 12px;
+        }
+        .footer-route strong {
+          font-size: 27px;
+        }
+        .footer-flight .footer-dates {
+          font-size: 10px;
+        }
+        .footer-mark {
+          padding: 15px 0;
+        }
+        .footer-mark img {
+          max-height: 130px;
+        }
+        .footer-bottom {
+          flex-wrap: wrap;
+          padding: 22px 0 28px;
+          gap: 15px;
+        }
+        .footer-bottom p {
+          max-width: 270px;
+        }
+      }
     </style>
   </head>
   <body data-concept="Atlas" class="dark-concept">
@@ -1247,21 +1445,72 @@
             </button>
           </div>
         </section>
-        <footer class="footer">
-          <div>
-            <div class="contacts">
+        <footer class="footer" aria-label="Rodapé">
+          <div class="footer-main">
+            <div class="footer-brand">
+              <a href="atlas.html" aria-label="Next, início"
+                ><img
+                  src="img/logo-next-orange.png"
+                  alt="Next"
+                  width="112"
+                  height="63"
+              /></a>
+              <p>
+                Missões empresariais e institucionais ao PDAC. Planejamento no
+                Brasil, presença em Toronto e continuidade no Canadá.
+              </p>
+            </div>
+            <nav class="footer-nav" aria-label="Atalhos do rodapé">
+              <h3>Explore a missão</h3>
+              <a href="#agenda">Antes, durante e depois</a>
+              <a href="#equipe">Sua equipe local</a>
+              <a href="#formatos">Encontre seu formato</a>
+              <a href="conceitos.html">Comparar propostas ↗</a>
+            </nav>
+            <div class="footer-contact">
+              <h3>Fale com a Flávia</h3>
+              <strong>Flávia Saleme</strong>
               <a href="mailto:flavia@nextmining.com.br"
                 >flavia@nextmining.com.br ↗</a
-              ><a href="mailto:ramon@nextmining.com.br"
+              >
+              <button data-contact>Vamos planejar sua missão ↗</button>
+            </div>
+            <div class="footer-contact">
+              <h3>Fale com o Ramon</h3>
+              <strong>Ramon Dias</strong>
+              <a href="mailto:ramon@nextmining.com.br"
                 >ramon@nextmining.com.br ↗</a
               >
+              <button data-contact>Converse com a Next ↗</button>
             </div>
-            <p>
-              © 2026 Next. Empresa independente, sem vínculo com a organização
-              do PDAC.
-            </p>
           </div>
-          <a href="conceitos.html">Comparar propostas ↗</a>
+          <div class="footer-flight">
+            <div class="footer-route">
+              <strong>BRASIL</strong><span aria-hidden="true">⟶</span
+              ><strong>TORONTO</strong>
+            </div>
+            <div class="footer-dates">
+              PDAC 2027 · 7 a 10 de março<br /><span
+                >Metro Toronto Convention Centre</span
+              >
+            </div>
+          </div>
+          <div class="footer-mark" aria-hidden="true">
+            <img
+              src="img/logo-next-orange.png"
+              alt=""
+              width="720"
+              height="406"
+              loading="lazy"
+            />
+          </div>
+          <div class="footer-bottom">
+            <p>
+              © 2026 Next · nextmining.com.br<br />Empresa independente, sem
+              vínculo com a organização do PDAC.
+            </p>
+            <a href="#">Voltar ao início ↑</a>
+          </div>
         </footer>
       </div>
     </main>
